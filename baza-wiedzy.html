@@ -124,7 +124,7 @@
 </script>
 <section class="max-w-7xl mx-auto px-4 py-16" id="main">
   <h1 class="text-3xl font-bold mb-6">Baza wiedzy</h1>
-  <p class="text-slate-600 dark:text-slate-300 mb-8">Poradniki i praktyczne wskazówki.</p>
+  <div class="max-w-md"><input id="kw-search" type="search" placeholder="Szukaj w Bazie wiedzy..." class="w-full border rounded p-2"></div>
   <div class="grid md:grid-cols-3 gap-6">
     <article class="card p-4"><h2 class="font-semibold">Kiedy wnioskować o interpretację KIS?</h2><a class="text-indigo-700 hover:underline" href="post-1.html">Czytaj →</a></article>
     <article class="card p-4"><h2 class="font-semibold">Opis stanu faktycznego – checklista</h2><a class="text-indigo-700 hover:underline" href="post-2.html">Czytaj →</a></article>
@@ -133,6 +133,24 @@
     <article class="card p-4"><h2 class="font-semibold">WIS a interpretacja – różnice</h2><a class="text-indigo-700 hover:underline" href="post-5.html">Czytaj →</a></article>
     <article class="card p-4"><h2 class="font-semibold">IP Box – dokumentacja do wniosku</h2><a class="text-indigo-700 hover:underline" href="post-6.html">Czytaj →</a></article>
   </div>
+
+<script>
+  (function(){
+    const q = new URLSearchParams(location.search).get('q')||'';
+    const input = document.getElementById('kw-search');
+    if (input){ input.value=q; const cards=[...document.querySelectorAll('article.card')];
+      function filter(){
+        const s = input.value.toLowerCase();
+        cards.forEach(c=>{
+          const ok = c.textContent.toLowerCase().includes(s);
+          c.style.display = ok ? '' : 'none';
+        });
+        const url = new URL(location); if(s) url.searchParams.set('q', s); else url.searchParams.delete('q'); history.replaceState({},'',url);
+      }
+      input.addEventListener('input', filter); filter();
+    }
+  })();
+</script>
 </section>
 
   <!-- Bottom CTA -->
@@ -161,7 +179,25 @@
         <p class="text-xs text-slate-500 mt-2">Podmień adres Formspree na swój.</p>
       </form>
     </div>
-  </section>
+  
+<script>
+  (function(){
+    const q = new URLSearchParams(location.search).get('q')||'';
+    const input = document.getElementById('kw-search');
+    if (input){ input.value=q; const cards=[...document.querySelectorAll('article.card')];
+      function filter(){
+        const s = input.value.toLowerCase();
+        cards.forEach(c=>{
+          const ok = c.textContent.toLowerCase().includes(s);
+          c.style.display = ok ? '' : 'none';
+        });
+        const url = new URL(location); if(s) url.searchParams.set('q', s); else url.searchParams.delete('q'); history.replaceState({},'',url);
+      }
+      input.addEventListener('input', filter); filter();
+    }
+  })();
+</script>
+</section>
 
   <footer class="bg-slate-900 text-slate-300 mt-0">
     <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-4 gap-8">
