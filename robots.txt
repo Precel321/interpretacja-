@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://twoj-login.github.io/interpretacje-www/sitemap.xml
