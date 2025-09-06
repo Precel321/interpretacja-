@@ -86,3 +86,27 @@ html.dark .bg-grid:before {
 .skeleton.h-24 { height: 6rem; }
 .skeleton.mt { margin-top:.5rem; }
 .badge-pro { background: #e0e7ff; color:#3730a3; font-weight:700; padding:.2rem .5rem; border-radius:.5rem; }
+
+
+/* Vivid hero background */
+.bg-hero-vivid {
+  background:
+    radial-gradient(1000px 600px at 10% -10%, rgba(79,70,229,.30), rgba(255,255,255,0)),
+    radial-gradient(900px 500px at 110% 0%, rgba(16,185,129,.22), rgba(255,255,255,0)),
+    conic-gradient(from 180deg at 50% -10%, rgba(79,70,229,.10), rgba(16,185,129,.08), rgba(59,130,246,.08), rgba(79,70,229,.10));
+  position: relative;
+}
+html.dark .bg-hero-vivid {
+  background:
+    radial-gradient(1000px 600px at 10% -10%, rgba(79,70,229,.28), rgba(2,6,23,0)),
+    radial-gradient(900px 500px at 110% 0%, rgba(16,185,129,.18), rgba(2,6,23,0)),
+    conic-gradient(from 180deg at 50% -10%, rgba(79,70,229,.10), rgba(16,185,129,.08), rgba(59,130,246,.08), rgba(79,70,229,.10));
+}
+.bg-shapes:before, .bg-shapes:after { content:""; position:absolute; filter: blur(50px); opacity:.65; pointer-events:none; }
+.bg-shapes:before { width:340px; height:340px; left:2%; top:-60px; background: radial-gradient(circle at 30% 30%, rgba(79,70,229,.45), rgba(79,70,229,0)); animation: float1 12s ease-in-out infinite; }
+.bg-shapes:after  { width:420px; height:420px; right:-40px; top:-40px; background: radial-gradient(circle at 50% 50%, rgba(16,185,129,.35), rgba(16,185,129,0)); animation: float2 13s ease-in-out infinite; }
+@keyframes float1 { 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(20px) } }
+@keyframes float2 { 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(-18px) } }
+/* Soon badge */
+.badge-soon { display:inline-block; background:#fff7ed; color:#9a3412; border:1px solid #fed7aa; padding:.2rem .5rem; border-radius:.5rem; font-weight:600; font-size:.75rem; }
+html.dark .badge-soon { background:#1f2937; color:#fdba74; border-color:#9a3412; }
