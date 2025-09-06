@@ -1,16 +1,14 @@
-# Interpretacje – SMOOTH Visual + GA4 (inspired), więcej zdjęć, płynność
 
-**Inspiracja:** layout i płynność (mikro‑interakcje, sekcja "zaufali", statystyki, miękkie animacje) w stylu strony Sperling (bez kopiowania treści).
+# Interpretacje – v4 (pełny ZIP do GitHub Pages)
+- SEO: meta + **JSON-LD** (Organization, WebSite, Breadcrumbs, Service, FAQPage, **Article** dla wpisów).
+- Podział usług: KIS / ZUS / GUS / WIS / WIA / pisma (na `interpretacje.html`).
+- **Preact** widgety (ESM, bez builda): asystent wyboru wniosku + estymator kosztu.
+- GA4 po zgodzie (RODO), dark mode, bottom CTA „Opisz swój problem” na każdej stronie.
+- `sitemap.xml`, `robots.txt`, `.nojekyll`, `404.html`, lokalne okładki w `assets/`.
 
-**Co dodane:**
-- Więcej zdjęć + **logo rail** (auto‑scroll) i **statystyki** z płynnym licznikem.
-- GA4 uruchamiane po zgodzie (cookie banner) – ustaw ID w `ga-config.js`.
-- **Dark mode**, Google Font (Inter), smooth‑scroll, fade‑in między stronami.
-- Poprawki: alt-y, aria-current, lazy‑loading, kontrasty, rozmiary obrazów, `.nojekyll`, `robots.txt`, `sitemap.xml`, `404.html`.
-
-**Publikacja na GitHub Pages**
-1) Repo → Settings → Pages → Deploy from a branch → `main` → `/ (root)`
-2) „Add file → Upload files” – wgraj wszystkie pliki **w tym `assets/` i `assets/logos/`** do katalogu głównego repo.
-3) W `ga-config.js` wpisz swój identyfikator GA4 (`G-...`), w `kontakt.html` podmień endpoint Formspree.
-4) Wejdź: https://precel321.github.io/interpretacja-/ (Ctrl+F5).
-
+## Wdrożenie na GitHub Pages
+1) Repo → **Add file → Upload files** → wrzuć *całą* zawartość z tego ZIP (foldery `assets/` i `assets/logos/` obowiązkowo) → **Commit**.
+2) **Settings → Pages**: Deploy from a branch → `main` → Folder: `/ (root)`.
+3) W `ga-config.js` wpisz swój **GA4** (`G-...`).
+4) W `kontakt.html` i w mini‑formularzu (sekcja „Opisz…”) podmień **Formspree**.
+5) Otwórz: https://precel321.github.io/interpretacja-/ (Ctrl+F5).

@@ -35,6 +35,6 @@ html.dark .stat { background:#0f172a; border-color:#1f2937; }
 .logo-rail { display:flex; gap:2rem; overflow:hidden; }
 .logo-track { display:flex; gap:2rem; animation: scrollx 30s linear infinite; }
 @keyframes scrollx { from{ transform: translateX(0); } to{ transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) {
-  .fade-up, .card, .logo-track { transition:none!important; animation:none!important; }
-}
+.bottom-cta { background: linear-gradient(135deg, rgba(79,70,229,.08), rgba(16,185,129,.08)); }
+.prose h1, .prose h2, .prose h3 { color: #0f172a; }
+html.dark .prose h1, html.dark .prose h2, html.dark .prose h3 { color: #e2e8f0; }
