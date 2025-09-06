@@ -1,0 +1,2 @@
+# interpretacja-
+Strona Interpretacja indywidualna
