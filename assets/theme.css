@@ -1,0 +1,17 @@
+
+/* Simple micro-animations & visual sugar */
+.fade-up { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+.fade-up.in-view { opacity: 1; transform: translateY(0); }
+.glass { background: rgba(255,255,255,.7); backdrop-filter: blur(8px); }
+.pattern {
+  background-image: radial-gradient(circle at 1px 1px, rgba(99,102,241,.25) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.badge { display:inline-block; padding:.25rem .5rem; border-radius:.5rem; background: #eef2ff; color:#3730a3; font-weight:600; font-size:.75rem; }
+.shadow-soft { box-shadow: 0 10px 30px rgba(2,6,23,.12); }
+.card { background:#fff; border:1px solid #e5e7eb; border-radius:1rem; }
+.timeline { position:relative; }
+.timeline:before { content:""; position:absolute; left:1rem; top:0; bottom:0; width:2px; background: #e5e7eb; }
+.timeline-step { position:relative; padding-left:3.5rem; margin-bottom:1.25rem; }
+.timeline-step:before { content:""; position:absolute; left:.6rem; top:.25rem; width:.9rem; height:.9rem; border-radius:50%; background:#6366f1; }
+.sticky-cta { position:fixed; right:1rem; bottom:1rem; z-index:60; }

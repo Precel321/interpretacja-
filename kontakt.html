@@ -3,16 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Interpretacje Indywidualne – Kontakt</title>
-  <meta name="description" content="Skontaktuj się – opisz swój problem, odpowiemy tego samego dnia roboczego." />
+  <title>Kontakt – Opisz swój problem</title>
+  <meta name="description" content="Skontaktuj się – odpowiemy tego samego dnia roboczego." />
   <link rel="icon" href="favicon.ico">
-  <meta property="og:title" content="Interpretacje Indywidualne – Kontakt">
-  <meta property="og:description" content="Skontaktuj się – opisz swój problem, odpowiemy tego samego dnia roboczego.">
+  <meta property="og:title" content="Kontakt – Opisz swój problem">
+  <meta property="og:description" content="Skontaktuj się – odpowiemy tego samego dnia roboczego.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://precel321.github.io/interpretacja-/og-image.png">
+  <meta property="og:image" content="assets/og-image.png">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script defer src="script.js"></script>
-  <style>html { scroll-behavior: smooth; } .nav-active { color: rgb(79 70 229); font-weight: 600; }</style>
+  <link rel="stylesheet" href="assets/theme.css">
+  <script defer src="assets/script.js"></script>
+  <style>.nav-active { color: rgb(79 70 229); font-weight: 700; }</style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Interpretacje Indywidualne",
+    "description": "Pomoc w uzyskaniu interpretacji indywidualnych KIS: analiza, wniosek, korespondencja, decyzja.",
+    "url": "https://precel321.github.io/interpretacja-/",
+    "areaServed": "PL",
+    "serviceType": "Doradztwo podatkowe – interpretacje indywidualne",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Warszawa",
+      "addressCountry": "PL"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "kontakt@interpretacje.pl"
+    }
+  }
+  </script>
 </head>
 <body class="font-sans antialiased bg-slate-50 text-slate-900">
   <header class="bg-white/90 backdrop-blur shadow sticky top-0 z-50">
@@ -22,20 +44,26 @@
       </a>
       <button id="menuBtn" class="md:hidden p-2 rounded border border-slate-200" aria-label="Otwórz menu">☰</button>
       <nav id="mainNav" class="hidden md:flex items-center space-x-6 text-sm">
-        <a href="problemy.html" class="hover:text-indigo-700">Twoje problemy</a>
+        <a href="interpretacje.html" class="hover:text-indigo-700">Usługa</a>
         <a href="proces.html" class="hover:text-indigo-700">Proces</a>
+        <a href="case-studies.html" class="hover:text-indigo-700">Case studies</a>
+        <a href="cennik.html" class="hover:text-indigo-700">Cennik</a>
         <a href="blog.html" class="hover:text-indigo-700">Blog</a>
         <a href="faq.html" class="hover:text-indigo-700">FAQ</a>
+        <a href="o-nas.html" class="hover:text-indigo-700">O nas</a>
         <a href="kontakt.html" class="hover:text-indigo-700">Kontakt</a>
       </nav>
       <a href="kontakt.html" class="ml-4 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 shadow hidden md:inline-block">Opisz swój problem</a>
     </div>
     <div id="mobileNav" class="hidden md:hidden border-t border-slate-200 bg-white">
       <div class="max-w-7xl mx-auto px-4 py-3 space-y-2 text-sm">
-        <a href="problemy.html" class="block">Twoje problemy</a>
+        <a href="interpretacje.html" class="block">Usługa</a>
         <a href="proces.html" class="block">Proces</a>
+        <a href="case-studies.html" class="block">Case studies</a>
+        <a href="cennik.html" class="block">Cennik</a>
         <a href="blog.html" class="block">Blog</a>
         <a href="faq.html" class="block">FAQ</a>
+        <a href="o-nas.html" class="block">O nas</a>
         <a href="kontakt.html" class="block">Kontakt</a>
         <a href="kontakt.html" class="block px-3 py-2 bg-emerald-600 text-white rounded">Opisz swój problem</a>
       </div>
@@ -59,16 +87,22 @@
   </section>
 
   <footer class="bg-slate-900 text-slate-300 mt-16">
-    <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
-      <div><p class="font-semibold text-white">InterpretacjeIndywidualne.pl</p><p class="text-sm mt-2">Specjalizacja: pomoc w uzyskaniu interpretacji indywidualnych KIS.</p></div>
+    <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-4 gap-8">
+      <div class="col-span-2">
+        <p class="font-semibold text-white">InterpretacjeIndywidualne.pl</p>
+        <p class="text-sm mt-2">Specjalizacja: pomoc w uzyskaniu interpretacji indywidualnych KIS. Nie świadczymy ogólnych porad ani nie uzyskujemy objaśnień MF.</p>
+      </div>
       <div class="text-sm">
         <p class="font-semibold text-white mb-2">Nawigacja</p>
         <ul class="space-y-1">
           <li><a href="index.html" class="hover:underline">Strona główna</a></li>
-          <li><a href="problemy.html" class="hover:underline">Problemy klientów</a></li>
+          <li><a href="interpretacje.html" class="hover:underline">Usługa</a></li>
           <li><a href="proces.html" class="hover:underline">Proces</a></li>
+          <li><a href="case-studies.html" class="hover:underline">Case studies</a></li>
+          <li><a href="cennik.html" class="hover:underline">Cennik</a></li>
           <li><a href="blog.html" class="hover:underline">Blog</a></li>
           <li><a href="faq.html" class="hover:underline">FAQ</a></li>
+          <li><a href="o-nas.html" class="hover:underline">O nas</a></li>
           <li><a href="kontakt.html" class="hover:underline">Kontakt</a></li>
         </ul>
       </div>
@@ -76,12 +110,13 @@
         <p class="font-semibold text-white mb-2">Informacje</p>
         <p>NIP: 1234567890 · ul. Dobra 1, 00-000 Warszawa</p>
         <p><a href="mailto:kontakt@interpretacje.pl" class="hover:underline">kontakt@interpretacje.pl</a></p>
-        <p class="mt-2"><a href="#" class="policy-link hover:underline" data-policy="polityka">Polityka prywatności</a> · <a href="#" class="policy-link hover:underline" data-policy="cookies">Cookies</a> · <a href="#" class="policy-link hover:underline" data-policy="regulamin">Regulamin</a></p>
+        <p class="mt-2"><a href="polityka-prywatnosci.html" class="hover:underline">Polityka prywatności</a> · <a href="regulamin.html" class="hover:underline">Regulamin</a></p>
       </div>
     </div>
     <div class="text-center text-xs border-t border-slate-800 py-4">© 2025 InterpretacjeIndywidualne.pl</div>
   </footer>
 
+  <!-- Modal -->
   <div id="modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center p-4">
     <div class="bg-white max-w-2xl w-full rounded-2xl shadow-xl overflow-hidden">
       <div class="flex items-center justify-between px-5 py-3 border-b">
@@ -92,6 +127,8 @@
     </div>
   </div>
 
-  <button id="backTop" class="hidden fixed bottom-6 right-6 p-3 rounded-full bg-indigo-600 text-white shadow hover:bg-indigo-700" aria-label="Do góry">↑</button>
+  <a href="kontakt.html" class="sticky-cta px-4 py-3 rounded-full bg-indigo-600 text-white shadow hover:bg-indigo-700">Opisz swój problem</a>
+  <button id="backTop" class="hidden fixed bottom-6 right-6 translate-y-16 p-3 rounded-full bg-indigo-600 text-white shadow hover:bg-indigo-700" aria-label="Do góry">↑</button>
+  
 </body>
 </html>
