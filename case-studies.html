@@ -10,17 +10,26 @@
   <meta property="og:description" content="Case studies – Interpretacje">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial;opacity:0;transition:opacity .3s ease}</style>
   <link rel="stylesheet" href="assets/theme.css">
+  <script defer src="ga-config.js"></script>
   <script defer src="assets/script.js"></script>
 </head>
-<body class="font-sans antialiased bg-slate-50 text-slate-900">
+<body class="antialiased bg-slate-50 text-slate-900">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white text-slate-900 px-3 py-1 rounded">Przejdź do treści</a>
   <header class="bg-white/90 backdrop-blur shadow sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="index.html" class="font-bold text-xl tracking-tight flex items-center gap-2" aria-label="Strona główna">
-        <span class="text-indigo-700">Interpretacje</span> <span class="text-slate-700">Indywidualne</span>
+      <a href="index.html" class="font-extrabold text-xl tracking-tight flex items-center gap-2" aria-label="Strona główna">
+        <span class="text-indigo-700">Interpretacje</span> <span class="text-slate-800">Indywidualne</span>
       </a>
-      <button id="menuBtn" class="md:hidden p-2 rounded border border-slate-200" aria-label="Otwórz menu">☰</button>
+      <div class="flex items-center gap-2">
+        <button id="themeBtn" class="theme-toggle hidden md:inline-flex items-center gap-1" aria-label="Przełącz motyw">🌓</button>
+        <button id="menuBtn" class="md:hidden p-2 rounded border border-slate-200" aria-label="Otwórz menu">☰</button>
+      </div>
       <nav id="mainNav" class="hidden md:flex items-center space-x-6 text-sm">
         <a href="interpretacje.html" class="hover:text-indigo-700">Usługa</a>
         <a href="proces.html" class="hover:text-indigo-700">Proces</a>
@@ -31,7 +40,7 @@
         <a href="o-nas.html" class="hover:text-indigo-700">O nas</a>
         <a href="kontakt.html" class="hover:text-indigo-700">Kontakt</a>
       </nav>
-      <a href="kontakt.html" class="ml-4 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 shadow hidden md:inline-block">Opisz swój problem</a>
+      <a href="kontakt.html" class="ml-4 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 shadow hidden md:inline-block">Opisz problem</a>
     </div>
     <div id="mobileNav" class="hidden md:hidden border-t border-slate-200 bg-white">
       <div class="max-w-7xl mx-auto px-4 py-3 space-y-2 text-sm">
@@ -43,7 +52,7 @@
         <a href="faq.html" class="block">FAQ</a>
         <a href="o-nas.html" class="block">O nas</a>
         <a href="kontakt.html" class="block">Kontakt</a>
-        <a href="kontakt.html" class="block px-3 py-2 bg-emerald-600 text-white rounded">Opisz swój problem</a>
+        <a href="kontakt.html" class="block px-3 py-2 bg-emerald-600 text-white rounded">Opisz problem</a>
       </div>
     </div>
   </header>
@@ -51,7 +60,7 @@
 <section class="max-w-7xl mx-auto px-4 py-16">
   <h1 class="text-3xl font-bold mb-10">Case studies</h1>
   <div class="grid md:grid-cols-2 gap-6">
-    <article class="card p-6 shadow-soft fade-up"><h3 class="text-xl font-semibold mb-2">Stawka VAT dla zestawu produktowego</h3><p class="text-sm text-slate-500 mb-4">Branża: e‑commerce</p><p><strong>Problem:</strong> Zestaw łączący towary o różnych klasyfikacjach.</p><p><strong>Podejście:</strong> Opis komponentów i funkcji dominującej, kwerenda orzeczeń, pytania wariantowe.</p><p><strong>Efekt:</strong> Potwierdzona stawka 8% dla całego zestawu.</p></article>
+    <article class="card p-6 shadow-soft fade-up"><h3 class="text-xl font-semibold mb-2">Stawka VAT dla zestawu produktowego</h3><p class="text-sm text-slate-500 mb-4">Branża: e‑commerce</p><p><strong>Problem:</strong> Zestaw łączący towary o różnych klasyfikacjach.</p><p><strong>Podejście:</strong> Opis komponentów i funkcji dominującej, kwerenda orzeczeń.</p><p><strong>Efekt:</strong> Potwierdzona stawka 8% dla całego zestawu.</p></article>
     <article class="card p-6 shadow-soft fade-up"><h3 class="text-xl font-semibold mb-2">Czy benefit generuje przychód?</h3><p class="text-sm text-slate-500 mb-4">Branża: usługi B2B</p><p><strong>Problem:</strong> Finansowanie pakietu świadczeń pozapłacowych.</p><p><strong>Podejście:</strong> Analiza dostępności świadczenia i ekwiwalentności.</p><p><strong>Efekt:</strong> Brak przychodu pracownika – brak zaliczki PIT.</p></article>
     <article class="card p-6 shadow-soft fade-up"><h3 class="text-xl font-semibold mb-2">IP Box dla oprogramowania embedded</h3><p class="text-sm text-slate-500 mb-4">Branża: produkcja/IT</p><p><strong>Problem:</strong> Dochody z praw do oprogramowania w urządzeniach.</p><p><strong>Podejście:</strong> Mapowanie prac B+R, dokumentacja IP.</p><p><strong>Efekt:</strong> Potwierdzona preferencja IP Box.</p></article>
     <article class="card p-6 shadow-soft fade-up"><h3 class="text-xl font-semibold mb-2">Usługa złożona – miejsce świadczenia (VAT)</h3><p class="text-sm text-slate-500 mb-4">Branża: SaaS</p><p><strong>Problem:</strong> Klienci z UE/poza UE, model subskrypcyjny.</p><p><strong>Podejście:</strong> Mapa przepływów, testy stałego miejsca.</p><p><strong>Efekt:</strong> Jednoznaczne potwierdzenie miejsca opodatkowania.</p></article>
@@ -98,7 +107,7 @@
     </div>
   </div>
 
-  <a href="kontakt.html" class="sticky-cta px-4 py-3 rounded-full bg-indigo-600 text-white shadow hover:bg-indigo-700">Opisz swój problem</a>
+  <a href="kontakt.html" class="sticky-cta px-4 py-3 rounded-full bg-indigo-600 text-white shadow hover:bg-indigo-700">Opisz problem</a>
   <button id="backTop" class="hidden fixed bottom-6 right-6 translate-y-16 p-3 rounded-full bg-indigo-600 text-white shadow hover:bg-indigo-700" aria-label="Do góry">↑</button>
 </body>
 </html>

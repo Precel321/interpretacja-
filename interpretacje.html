@@ -4,23 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Usługa – Interpretacje indywidualne</title>
-  <meta name="description" content="Kompleksowa pomoc przy uzyskaniu interpretacji indywidualnej KIS: analiza, wniosek, korespondencja, decyzja." />
+  <meta name="description" content="Usługa – Interpretacje indywidualne" />
   <link rel="icon" href="favicon.ico">
   <meta property="og:title" content="Usługa – Interpretacje indywidualne">
-  <meta property="og:description" content="Kompleksowa pomoc przy uzyskaniu interpretacji indywidualnej KIS: analiza, wniosek, korespondencja, decyzja.">
+  <meta property="og:description" content="Usługa – Interpretacje indywidualne">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial;opacity:0;transition:opacity .3s ease}</style>
   <link rel="stylesheet" href="assets/theme.css">
+  <script defer src="ga-config.js"></script>
   <script defer src="assets/script.js"></script>
 </head>
-<body class="font-sans antialiased bg-slate-50 text-slate-900">
+<body class="antialiased bg-slate-50 text-slate-900">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white text-slate-900 px-3 py-1 rounded">Przejdź do treści</a>
   <header class="bg-white/90 backdrop-blur shadow sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="index.html" class="font-bold text-xl tracking-tight flex items-center gap-2" aria-label="Strona główna">
-        <span class="text-indigo-700">Interpretacje</span> <span class="text-slate-700">Indywidualne</span>
+      <a href="index.html" class="font-extrabold text-xl tracking-tight flex items-center gap-2" aria-label="Strona główna">
+        <span class="text-indigo-700">Interpretacje</span> <span class="text-slate-800">Indywidualne</span>
       </a>
-      <button id="menuBtn" class="md:hidden p-2 rounded border border-slate-200" aria-label="Otwórz menu">☰</button>
+      <div class="flex items-center gap-2">
+        <button id="themeBtn" class="theme-toggle hidden md:inline-flex items-center gap-1" aria-label="Przełącz motyw">🌓</button>
+        <button id="menuBtn" class="md:hidden p-2 rounded border border-slate-200" aria-label="Otwórz menu">☰</button>
+      </div>
       <nav id="mainNav" class="hidden md:flex items-center space-x-6 text-sm">
         <a href="interpretacje.html" class="hover:text-indigo-700">Usługa</a>
         <a href="proces.html" class="hover:text-indigo-700">Proces</a>
@@ -31,7 +40,7 @@
         <a href="o-nas.html" class="hover:text-indigo-700">O nas</a>
         <a href="kontakt.html" class="hover:text-indigo-700">Kontakt</a>
       </nav>
-      <a href="kontakt.html" class="ml-4 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 shadow hidden md:inline-block">Opisz swój problem</a>
+      <a href="kontakt.html" class="ml-4 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 shadow hidden md:inline-block">Opisz problem</a>
     </div>
     <div id="mobileNav" class="hidden md:hidden border-t border-slate-200 bg-white">
       <div class="max-w-7xl mx-auto px-4 py-3 space-y-2 text-sm">
@@ -43,92 +52,84 @@
         <a href="faq.html" class="block">FAQ</a>
         <a href="o-nas.html" class="block">O nas</a>
         <a href="kontakt.html" class="block">Kontakt</a>
-        <a href="kontakt.html" class="block px-3 py-2 bg-emerald-600 text-white rounded">Opisz swój problem</a>
+        <a href="kontakt.html" class="block px-3 py-2 bg-emerald-600 text-white rounded">Opisz problem</a>
       </div>
     </div>
   </header>
 
-  <section class="max-w-7xl mx-auto px-4 py-16">
-    <h1 class="text-3xl font-bold mb-6">Interpretacje indywidualne – tylko tym się zajmujemy</h1>
-    <p class="text-slate-700 mb-6">Od audytu szans po odbiór decyzji i wdrożenie – działamy w pełnym cyklu. Poniżej znajdziesz warianty spraw, w których najczęściej pomagamy.</p>
+<section class="max-w-7xl mx-auto px-4 py-16">
+  <h1 class="text-3xl font-bold mb-6">Interpretacje indywidualne – warianty i zakres</h1>
+  <p class="text-slate-700 dark:text-slate-300 mb-6">Od audytu szans po odbiór decyzji i wdrożenie – działamy w pełnym cyklu. Poniżej typowe obszary.</p>
 
-    <!-- Kafelki skrótów -->
-    <div class="grid md:grid-cols-5 gap-4 mb-10">
-      <a href="#vat" class="card p-4 text-center hover:shadow-soft"><img src="assets/icon-vat.png" alt="" class="w-10 h-10 mx-auto mb-2"><span class="font-semibold">VAT</span></a>
-      <a href="#koszty" class="card p-4 text-center hover:shadow-soft"><img src="assets/icon-koszty.png" alt="" class="w-10 h-10 mx-auto mb-2"><span class="font-semibold">Koszty/Przychody</span></a>
-      <a href="#preferencje" class="card p-4 text-center hover:shadow-soft"><img src="assets/icon-pref.png" alt="" class="w-10 h-10 mx-auto mb-2"><span class="font-semibold">Preferencje</span></a>
-      <a href="#miedzynarodowe" class="card p-4 text-center hover:shadow-soft"><img src="assets/icon-intl.png" alt="" class="w-10 h-10 mx-auto mb-2"><span class="font-semibold">Międzynarodowe</span></a>
-      <a href="#pracownicze" class="card p-4 text-center hover:shadow-soft"><img src="assets/icon-hr.png" alt="" class="w-10 h-10 mx-auto mb-2"><span class="font-semibold">Świadczenia pracownicze</span></a>
+  <div class="grid md:grid-cols-5 gap-4 mb-10">
+    <a href="#vat" class="card p-4 text-center hover:shadow-soft"><img src="assets/icon-vat.png" alt="" class="w-10 h-10 mx-auto mb-2"><span class="font-semibold">VAT</span></a>
+    <a href="#koszty" class="card p-4 text-center hover:shadow-soft"><img src="assets/icon-koszty.png" alt="" class="w-10 h-10 mx-auto mb-2"><span class="font-semibold">Koszty/Przychody</span></a>
+    <a href="#preferencje" class="card p-4 text-center hover:shadow-soft"><img src="assets/icon-pref.png" alt="" class="w-10 h-10 mx-auto mb-2"><span class="font-semibold">Preferencje</span></a>
+    <a href="#miedzynarodowe" class="card p-4 text-center hover:shadow-soft"><img src="assets/icon-intl.png" alt="" class="w-10 h-10 mx-auto mb-2"><span class="font-semibold">Międzynarodowe</span></a>
+    <a href="#pracownicze" class="card p-4 text-center hover:shadow-soft"><img src="assets/icon-hr.png" alt="" class="w-10 h-10 mx-auto mb-2"><span class="font-semibold">Świadczenia</span></a>
+  </div>
+
+  <div id="vat" class="mb-12">
+    <h2 class="text-2xl font-bold mb-2">VAT – stawki i świadczenia złożone</h2>
+    <div class="grid md:grid-cols-3 gap-4 mb-4">
+      <img src="https://images.unsplash.com/photo-1589652717521-10c0d092dea9?q=80&w=1200&auto=format&fit=crop" alt="Analiza VAT" class="rounded-lg h-44 w-full object-cover" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1554224154-22dec7ec8818?q=80&w=1200&auto=format&fit=crop" alt="Klasyfikacja towarów" class="rounded-lg h-44 w-full object-cover" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop" alt="Warsztat VAT" class="rounded-lg h-44 w-full object-cover" loading="lazy">
     </div>
+    <a href="kontakt.html" class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">Omów sprawę VAT</a>
+  </div>
 
-    <!-- Sekcje usługowe z większą liczbą zdjęć -->
-    <section id="vat" class="mb-12">
-      <h2 class="text-2xl font-bold mb-2">VAT – stawki, klasyfikacje, usługi złożone</h2>
-      <p class="text-slate-700 mb-4">Pomagamy w doborze stawki i opisie usług/towarów, w tym zestawów i świadczeń złożonych. Przygotowujemy pytania wariantowe.</p>
-      <div class="grid md:grid-cols-3 gap-4 mb-4">
-        <img src="https://images.unsplash.com/photo-1589652717521-10c0d092dea9?q=80&w=1200&auto=format&fit=crop" alt="Analiza VAT" class="rounded-lg h-44 w-full object-cover">
-        <img src="https://images.unsplash.com/photo-1554224154-22dec7ec8818?q=80&w=1200&auto=format&fit=crop" alt="Klasyfikacja towarów" class="rounded-lg h-44 w-full object-cover">
-        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop" alt="Warsztat VAT" class="rounded-lg h-44 w-full object-cover">
-      </div>
-      <a href="kontakt.html" class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">Omów sprawę VAT</a>
-    </section>
-
-    <section id="koszty" class="mb-12">
-      <h2 class="text-2xl font-bold mb-2">Koszty i przychody</h2>
-      <p class="text-slate-700 mb-4">Wydatki w kosztach, przychód ze świadczeń, rozliczenia pracownicze – formułujemy opisy i pytania tak, by uzyskać ochronę.</p>
-      <div class="grid md:grid-cols-3 gap-4 mb-4">
-        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200&auto=format&fit=crop" alt="Analiza kosztów" class="rounded-lg h-44 w-full object-cover">
-        <img src="https://images.unsplash.com/photo-1590402494682-cd3fb53b1f53?q=80&w=1200&auto=format&fit=crop" alt="Dokumenty" class="rounded-lg h-44 w-full object-cover">
-        <img src="https://images.unsplash.com/photo-1600880292089-90e6a0a54b09?q=80&w=1200&auto=format&fit=crop" alt="Kalkulacje" class="rounded-lg h-44 w-full object-cover">
-      </div>
-      <a href="kontakt.html" class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">Omów koszty/przychody</a>
-    </section>
-
-    <section id="preferencje" class="mb-12">
-      <h2 class="text-2xl font-bold mb-2">Preferencje podatkowe (IP Box, estoński CIT)</h2>
-      <p class="text-slate-700 mb-4">Potwierdzamy prawo do preferencji w interpretacji przed wdrożeniem – minimalizujesz ryzyko.</p>
-      <div class="grid md:grid-cols-3 gap-4 mb-4">
-        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop" alt="IP Box" class="rounded-lg h-44 w-full object-cover">
-        <img src="https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?q=80&w=1200&auto=format&fit=crop" alt="Dokumentacja B+R" class="rounded-lg h-44 w-full object-cover">
-        <img src="https://images.unsplash.com/photo-1521791136064-6fb9d59af5fd?q=80&w=1200&auto=format&fit=crop" alt="Plan wdrożenia" class="rounded-lg h-44 w-full object-cover">
-      </div>
-      <a href="kontakt.html" class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">Omów preferencje</a>
-    </section>
-
-    <section id="miedzynarodowe" class="mb-12">
-      <h2 class="text-2xl font-bold mb-2">Transakcje międzynarodowe</h2>
-      <p class="text-slate-700 mb-4">Miejsce świadczenia, eksport/import usług, stałe miejsce prowadzenia – przygotujemy warianty pytań.</p>
-      <div class="grid md:grid-cols-3 gap-4 mb-4">
-        <img src="https://images.unsplash.com/photo-1517957754644-7681bf0f7a33?q=80&w=1200&auto=format&fit=crop" alt="Międzynarodowe rozliczenia" class="rounded-lg h-44 w-full object-cover">
-        <img src="https://images.unsplash.com/photo-1494415859740-21e878dd929d?q=80&w=1200&auto=format&fit=crop" alt="Mapa przepływów" class="rounded-lg h-44 w-full object-cover">
-        <img src="https://images.unsplash.com/photo-1543269865-0a740d43b90c?q=80&w=1200&auto=format&fit=crop" alt="SaaS & VAT" class="rounded-lg h-44 w-full object-cover">
-      </div>
-      <a href="kontakt.html" class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">Omów transakcje międzynarodowe</a>
-    </section>
-
-    <section id="pracownicze" class="mb-12">
-      <h2 class="text-2xl font-bold mb-2">Świadczenia pracownicze</h2>
-      <p class="text-slate-700 mb-4">Samochody, benefity, premie – oceniamy przychód pracownika i sposób opodatkowania.</p>
-      <div class="grid md:grid-cols-3 gap-4 mb-4">
-        <img src="https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?q=80&w=1200&auto=format&fit=crop" alt="Benefity" class="rounded-lg h-44 w-full object-cover">
-        <img src="https://images.unsplash.com/photo-1557425529-b1ae9c141e7d?q=80&w=1200&auto=format&fit=crop" alt="Zespół HR" class="rounded-lg h-44 w-full object-cover">
-        <img src="https://images.unsplash.com/photo-1549923746-c502d488b3ea?q=80&w=1200&auto=format&fit=crop" alt="Rozliczenia" class="rounded-lg h-44 w-full object-cover">
-      </div>
-      <a href="kontakt.html" class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">Omów świadczenia pracownicze</a>
-    </section>
-
-    <!-- Ogólny zakres/wykluczenia -->
-    <div class="card p-6 shadow-soft">
-      <h3 class="text-xl font-semibold mb-3">Zakres i wykluczenia</h3>
-      <ul class="list-disc pl-6 text-slate-700">
-        <li>Audyt sprawy i linii interpretacyjnych (kwerenda KIS/NSA).</li>
-        <li>Przygotowanie opisu stanu i pytań (również wariantowych).</li>
-        <li>Kompletacja załączników i złożenie wniosku do KIS.</li>
-        <li>Prowadzenie korespondencji – odpowiedzi na wezwania.</li>
-        <li><strong>Nie</strong> uzyskujemy interpretacji ogólnych i objaśnień MF.</li>
-      </ul>
+  <div id="koszty" class="mb-12">
+    <h2 class="text-2xl font-bold mb-2">Koszty i przychody</h2>
+    <div class="grid md:grid-cols-3 gap-4 mb-4">
+      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200&auto=format&fit=crop" alt="Analiza kosztów" class="rounded-lg h-44 w-full object-cover" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1590402494682-cd3fb53b1f53?q=80&w=1200&auto=format&fit=crop" alt="Dokumenty" class="rounded-lg h-44 w-full object-cover" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1600880292089-90e6a0a54b09?q=80&w=1200&auto=format&fit=crop" alt="Kalkulacje" class="rounded-lg h-44 w-full object-cover" loading="lazy">
     </div>
-  </section>
+    <a href="kontakt.html" class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">Omów koszty/przychody</a>
+  </div>
+
+  <div id="preferencje" class="mb-12">
+    <h2 class="text-2xl font-bold mb-2">Preferencje podatkowe</h2>
+    <div class="grid md:grid-cols-3 gap-4 mb-4">
+      <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop" alt="IP Box" class="rounded-lg h-44 w-full object-cover" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?q=80&w=1200&auto=format&fit=crop" alt="Dokumentacja B+R" class="rounded-lg h-44 w-full object-cover" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1521791136064-6fb9d59af5fd?q=80&w=1200&auto=format&fit=crop" alt="Plan wdrożenia" class="rounded-lg h-44 w-full object-cover" loading="lazy">
+    </div>
+    <a href="kontakt.html" class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">Omów preferencje</a>
+  </div>
+
+  <div id="miedzynarodowe" class="mb-12">
+    <h2 class="text-2xl font-bold mb-2">Transakcje międzynarodowe</h2>
+    <div class="grid md:grid-cols-3 gap-4 mb-4">
+      <img src="https://images.unsplash.com/photo-1517957754644-7681bf0f7a33?q=80&w=1200&auto=format&fit=crop" alt="Międzynarodowe rozliczenia" class="rounded-lg h-44 w-full object-cover" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1494415859740-21e878dd929d?q=80&w=1200&auto=format&fit=crop" alt="Mapa przepływów" class="rounded-lg h-44 w-full object-cover" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1543269865-0a740d43b90c?q=80&w=1200&auto=format&fit=crop" alt="SaaS & VAT" class="rounded-lg h-44 w-full object-cover" loading="lazy">
+    </div>
+    <a href="kontakt.html" class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">Omów transakcje międzynarodowe</a>
+  </div>
+
+  <div id="pracownicze" class="mb-12">
+    <h2 class="text-2xl font-bold mb-2">Świadczenia pracownicze</h2>
+    <div class="grid md:grid-cols-3 gap-4 mb-4">
+      <img src="https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?q=80&w=1200&auto=format&fit=crop" alt="Benefity" class="rounded-lg h-44 w-full object-cover" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1557425529-b1ae9c141e7d?q=80&w=1200&auto=format&fit=crop" alt="Zespół HR" class="rounded-lg h-44 w-full object-cover" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1549923746-c502d488b3ea?q=80&w=1200&auto=format&fit=crop" alt="Rozliczenia" class="rounded-lg h-44 w-full object-cover" loading="lazy">
+    </div>
+    <a href="kontakt.html" class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">Omów świadczenia</a>
+  </div>
+
+  <div class="card p-6 shadow-soft">
+    <h3 class="text-xl font-semibold mb-3">Zakres i wykluczenia</h3>
+    <ul class="list-disc pl-6 text-slate-700 dark:text-slate-300">
+      <li>Audyt sprawy i linii interpretacyjnych (kwerenda KIS/NSA).</li>
+      <li>Przygotowanie opisu stanu i pytań (również wariantowych).</li>
+      <li>Kompletacja załączników i złożenie wniosku do KIS.</li>
+      <li>Prowadzenie korespondencji – odpowiedzi na wezwania.</li>
+      <li><strong>Nie</strong> uzyskujemy interpretacji ogólnych i objaśnień MF.</li>
+    </ul>
+  </div>
+</section>
 
   <footer class="bg-slate-900 text-slate-300 mt-16">
     <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-4 gap-8">
@@ -170,7 +171,7 @@
     </div>
   </div>
 
-  <a href="kontakt.html" class="sticky-cta px-4 py-3 rounded-full bg-indigo-600 text-white shadow hover:bg-indigo-700">Opisz swój problem</a>
+  <a href="kontakt.html" class="sticky-cta px-4 py-3 rounded-full bg-indigo-600 text-white shadow hover:bg-indigo-700">Opisz problem</a>
   <button id="backTop" class="hidden fixed bottom-6 right-6 translate-y-16 p-3 rounded-full bg-indigo-600 text-white shadow hover:bg-indigo-700" aria-label="Do góry">↑</button>
 </body>
 </html>

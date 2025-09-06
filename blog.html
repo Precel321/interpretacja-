@@ -10,17 +10,26 @@
   <meta property="og:description" content="Blog – Interpretacje indywidualne">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial;opacity:0;transition:opacity .3s ease}</style>
   <link rel="stylesheet" href="assets/theme.css">
+  <script defer src="ga-config.js"></script>
   <script defer src="assets/script.js"></script>
 </head>
-<body class="font-sans antialiased bg-slate-50 text-slate-900">
+<body class="antialiased bg-slate-50 text-slate-900">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white text-slate-900 px-3 py-1 rounded">Przejdź do treści</a>
   <header class="bg-white/90 backdrop-blur shadow sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="index.html" class="font-bold text-xl tracking-tight flex items-center gap-2" aria-label="Strona główna">
-        <span class="text-indigo-700">Interpretacje</span> <span class="text-slate-700">Indywidualne</span>
+      <a href="index.html" class="font-extrabold text-xl tracking-tight flex items-center gap-2" aria-label="Strona główna">
+        <span class="text-indigo-700">Interpretacje</span> <span class="text-slate-800">Indywidualne</span>
       </a>
-      <button id="menuBtn" class="md:hidden p-2 rounded border border-slate-200" aria-label="Otwórz menu">☰</button>
+      <div class="flex items-center gap-2">
+        <button id="themeBtn" class="theme-toggle hidden md:inline-flex items-center gap-1" aria-label="Przełącz motyw">🌓</button>
+        <button id="menuBtn" class="md:hidden p-2 rounded border border-slate-200" aria-label="Otwórz menu">☰</button>
+      </div>
       <nav id="mainNav" class="hidden md:flex items-center space-x-6 text-sm">
         <a href="interpretacje.html" class="hover:text-indigo-700">Usługa</a>
         <a href="proces.html" class="hover:text-indigo-700">Proces</a>
@@ -31,7 +40,7 @@
         <a href="o-nas.html" class="hover:text-indigo-700">O nas</a>
         <a href="kontakt.html" class="hover:text-indigo-700">Kontakt</a>
       </nav>
-      <a href="kontakt.html" class="ml-4 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 shadow hidden md:inline-block">Opisz swój problem</a>
+      <a href="kontakt.html" class="ml-4 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 shadow hidden md:inline-block">Opisz problem</a>
     </div>
     <div id="mobileNav" class="hidden md:hidden border-t border-slate-200 bg-white">
       <div class="max-w-7xl mx-auto px-4 py-3 space-y-2 text-sm">
@@ -43,7 +52,7 @@
         <a href="faq.html" class="block">FAQ</a>
         <a href="o-nas.html" class="block">O nas</a>
         <a href="kontakt.html" class="block">Kontakt</a>
-        <a href="kontakt.html" class="block px-3 py-2 bg-emerald-600 text-white rounded">Opisz swój problem</a>
+        <a href="kontakt.html" class="block px-3 py-2 bg-emerald-600 text-white rounded">Opisz problem</a>
       </div>
     </div>
   </header>
@@ -51,15 +60,14 @@
 <section class="max-w-7xl mx-auto px-4 py-16">
   <div class="flex items-end justify-between mb-8">
     <h1 class="text-3xl font-bold">Blog</h1>
-    <p class="text-slate-600">Poradniki i praktyczne wskazówki.</p>
+    <p class="text-slate-600 dark:text-slate-300">Poradniki i praktyczne wskazówki.</p>
   </div>
-  <div class="grid md:grid-cols-3 lg:grid-cols-3 gap-8">
-    <article class="card overflow-hidden shadow-soft fade-up"><img src="assets/cover-1.png" class="h-44 w-full object-cover" alt=""><div class="p-6"><h3 class="text-lg font-semibold mb-2"><a href="post-1.html" class="hover:underline">Kiedy warto wystąpić o interpretację?</a></h3><p class="text-slate-600 mb-4">5 sygnałów, że interpretacja to właściwa ścieżka.</p><a href="post-1.html" class="text-indigo-700 hover:underline">Czytaj dalej →</a></div></article>
-    <article class="card overflow-hidden shadow-soft fade-up"><img src="assets/cover-2.png" class="h-44 w-full object-cover" alt=""><div class="p-6"><h3 class="text-lg font-semibold mb-2"><a href="post-2.html" class="hover:underline">Opis stanu faktycznego – checklista</a></h3><p class="text-slate-600 mb-4">Co przygotować, żeby uniknąć wezwań.</p><a href="post-2.html" class="text-indigo-700 hover:underline">Czytaj dalej →</a></div></article>
-    <article class="card overflow-hidden shadow-soft fade-up"><img src="assets/cover-3.png" class="h-44 w-full object-cover" alt=""><div class="p-6"><h3 class="text-lg font-semibold mb-2"><a href="post-3.html" class="hover:underline">Najczęstsze błędy we wnioskach</a></h3><p class="text-slate-600 mb-4">Jak zwiększyć skuteczność i tempo decyzji.</p><a href="post-3.html" class="text-indigo-700 hover:underline">Czytaj dalej →</a></div></article>
-    <article class="card overflow-hidden shadow-soft fade-up"><img src="assets/cover-4.png" class="h-44 w-full object-cover" alt=""><div class="p-6"><h3 class="text-lg font-semibold mb-2"><a href="post-4.html" class="hover:underline">Jak odpowiadać na wezwania KIS?</a></h3><p class="text-slate-600 mb-4">Schemat odpowiedzi i dobre praktyki.</p><a href="post-4.html" class="text-indigo-700 hover:underline">Czytaj dalej →</a></div></article>
-    <article class="card overflow-hidden shadow-soft fade-up"><img src="assets/cover-5.png" class="h-44 w-full object-cover" alt=""><div class="p-6"><h3 class="text-lg font-semibold mb-2"><a href="post-5.html" class="hover:underline">WIS a interpretacja – różnice</a></h3><p class="text-slate-600 mb-4">Kiedy WIS, a kiedy interpretacja KIS?</p><a href="post-5.html" class="text-indigo-700 hover:underline">Czytaj dalej →</a></div></article>
-    <article class="card overflow-hidden shadow-soft fade-up"><img src="assets/cover-6.png" class="h-44 w-full object-cover" alt=""><div class="p-6"><h3 class="text-lg font-semibold mb-2"><a href="post-6.html" class="hover:underline">IP Box – dokumentacja do wniosku</a></h3><p class="text-slate-600 mb-4">Co zebrać przed złożeniem wniosku?</p><a href="post-6.html" class="text-indigo-700 hover:underline">Czytaj dalej →</a></div></article>
+  <div class="grid md:grid-cols-3 lg:grid-cols-3 gap-8"><article class="card overflow-hidden shadow-soft fade-up"><img src="assets/cover-1.png" class="h-44 w-full object-cover" alt="" loading="lazy"><div class="p-6"><h3 class="text-lg font-semibold mb-2"><a href="post-1.html" class="hover:underline">Kiedy wnioskować o interpretację KIS?</a></h3><a href="post-1.html" class="text-indigo-700 hover:underline">Czytaj dalej →</a></div></article>
+<article class="card overflow-hidden shadow-soft fade-up"><img src="assets/cover-2.png" class="h-44 w-full object-cover" alt="" loading="lazy"><div class="p-6"><h3 class="text-lg font-semibold mb-2"><a href="post-2.html" class="hover:underline">Opis stanu faktycznego – checklista</a></h3><a href="post-2.html" class="text-indigo-700 hover:underline">Czytaj dalej →</a></div></article>
+<article class="card overflow-hidden shadow-soft fade-up"><img src="assets/cover-3.png" class="h-44 w-full object-cover" alt="" loading="lazy"><div class="p-6"><h3 class="text-lg font-semibold mb-2"><a href="post-3.html" class="hover:underline">Najczęstsze błędy we wnioskach</a></h3><a href="post-3.html" class="text-indigo-700 hover:underline">Czytaj dalej →</a></div></article>
+<article class="card overflow-hidden shadow-soft fade-up"><img src="assets/cover-4.png" class="h-44 w-full object-cover" alt="" loading="lazy"><div class="p-6"><h3 class="text-lg font-semibold mb-2"><a href="post-4.html" class="hover:underline">Jak odpowiadać na wezwania KIS?</a></h3><a href="post-4.html" class="text-indigo-700 hover:underline">Czytaj dalej →</a></div></article>
+<article class="card overflow-hidden shadow-soft fade-up"><img src="assets/cover-5.png" class="h-44 w-full object-cover" alt="" loading="lazy"><div class="p-6"><h3 class="text-lg font-semibold mb-2"><a href="post-5.html" class="hover:underline">WIS a interpretacja – różnice</a></h3><a href="post-5.html" class="text-indigo-700 hover:underline">Czytaj dalej →</a></div></article>
+<article class="card overflow-hidden shadow-soft fade-up"><img src="assets/cover-6.png" class="h-44 w-full object-cover" alt="" loading="lazy"><div class="p-6"><h3 class="text-lg font-semibold mb-2"><a href="post-6.html" class="hover:underline">IP Box – dokumentacja do wniosku</a></h3><a href="post-6.html" class="text-indigo-700 hover:underline">Czytaj dalej →</a></div></article>
   </div>
 </section>
 
@@ -103,7 +111,7 @@
     </div>
   </div>
 
-  <a href="kontakt.html" class="sticky-cta px-4 py-3 rounded-full bg-indigo-600 text-white shadow hover:bg-indigo-700">Opisz swój problem</a>
+  <a href="kontakt.html" class="sticky-cta px-4 py-3 rounded-full bg-indigo-600 text-white shadow hover:bg-indigo-700">Opisz problem</a>
   <button id="backTop" class="hidden fixed bottom-6 right-6 translate-y-16 p-3 rounded-full bg-indigo-600 text-white shadow hover:bg-indigo-700" aria-label="Do góry">↑</button>
 </body>
 </html>

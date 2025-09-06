@@ -1,8 +1,16 @@
-# Interpretacje – PRO Visual Plus (więcej zdjęć, więcej opcji „Zobacz usługę”, poprawki)
-Publikacja:
-1) Repo → Settings → Pages: Deploy from a branch → `main` → `/ (root)`
-2) „Add file → Upload files” – wyślij wszystkie pliki **w tym folder `assets/`** do katalogu głównego repo.
-3) W `kontakt.html` ustaw swój endpoint Formspree (`action="https://formspree.io/f/ABCDEF"`).
-4) Wejdź: https://precel321.github.io/interpretacja-/ (twarde odświeżenie: Ctrl+F5).
-Zmiany:
-- Więcej zdjęć (galeria, sekcje usług), więcej CTA „Zobacz usługę”, poprawki dostępności i aktywnego menu, aria-current, alt-y.
+# Interpretacje – SMOOTH Visual + GA4 (inspired), więcej zdjęć, płynność
+
+**Inspiracja:** layout i płynność (mikro‑interakcje, sekcja "zaufali", statystyki, miękkie animacje) w stylu strony Sperling (bez kopiowania treści).
+
+**Co dodane:**
+- Więcej zdjęć + **logo rail** (auto‑scroll) i **statystyki** z płynnym licznikem.
+- GA4 uruchamiane po zgodzie (cookie banner) – ustaw ID w `ga-config.js`.
+- **Dark mode**, Google Font (Inter), smooth‑scroll, fade‑in między stronami.
+- Poprawki: alt-y, aria-current, lazy‑loading, kontrasty, rozmiary obrazów, `.nojekyll`, `robots.txt`, `sitemap.xml`, `404.html`.
+
+**Publikacja na GitHub Pages**
+1) Repo → Settings → Pages → Deploy from a branch → `main` → `/ (root)`
+2) „Add file → Upload files” – wgraj wszystkie pliki **w tym `assets/` i `assets/logos/`** do katalogu głównego repo.
+3) W `ga-config.js` wpisz swój identyfikator GA4 (`G-...`), w `kontakt.html` podmień endpoint Formspree.
+4) Wejdź: https://precel321.github.io/interpretacja-/ (Ctrl+F5).
+
