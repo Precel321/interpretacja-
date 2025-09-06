@@ -13,28 +13,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="assets/theme.css">
   <script defer src="assets/script.js"></script>
-  <style>.nav-active { color: rgb(79 70 229); font-weight: 700; }</style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Interpretacje Indywidualne",
-    "description": "Pomoc w uzyskaniu interpretacji indywidualnych KIS: analiza, wniosek, korespondencja, decyzja.",
-    "url": "https://precel321.github.io/interpretacja-/",
-    "areaServed": "PL",
-    "serviceType": "Doradztwo podatkowe – interpretacje indywidualne",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Warszawa",
-      "addressCountry": "PL"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "customer support",
-      "email": "kontakt@interpretacje.pl"
-    }
-  }
-  </script>
 </head>
 <body class="font-sans antialiased bg-slate-50 text-slate-900">
   <header class="bg-white/90 backdrop-blur shadow sticky top-0 z-50">
@@ -71,14 +49,21 @@
   </header>
 
   <!-- HERO -->
-  <section class="relative pattern">
-    <img src="https://images.unsplash.com/photo-1581091012184-5c1c5f7e9a8a?q=80&w=1900&auto=format&fit=crop" alt="Dokumenty podatkowe" class="w-full h-[62vh] object-cover opacity-40" loading="eager">
-    <div class="absolute inset-0"></div>
+  <section class="relative">
+    <img src="https://images.unsplash.com/photo-1581091012184-5c1c5f7e9a8a?q=80&w=1900&auto=format&fit=crop" alt="Dokumenty podatkowe" class="w-full h-[62vh] object-cover">
+    <div class="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/55 to-transparent"></div>
     <div class="absolute inset-0 flex items-center">
       <div class="max-w-7xl mx-auto px-4">
         <span class="badge">Tylko interpretacje indywidualne</span>
         <h1 class="text-4xl md:text-6xl font-extrabold text-white drop-shadow mt-3">Interpretacja indywidualna<br>bezpiecznie i na czas</h1>
-        <p class="text-lg md:text-xl text-slate-100 max-w-3xl mt-4 fade-up">Przygotujemy kompletny wniosek do KIS, zadbamy o odpowiedzi na wezwania i przeprowadzimy Cię do decyzji. Zero ogólników – tylko konkrety i realna ochrona.</p>
+        <p class="text-lg md:text-xl text-slate-100 max-w-3xl mt-4 fade-up">Kompletny wniosek do KIS, odpowiedzi na wezwania, decyzja i wdrożenie. Bez ogólników – tylko konkrety.</p>
+        <div class="chips mt-6 flex flex-wrap gap-2 fade-up" aria-label="Szybkie linki do usługi">
+          <a href="interpretacje.html#vat">VAT</a>
+          <a href="interpretacje.html#koszty">Koszty/Przychody</a>
+          <a href="interpretacje.html#preferencje">Preferencje</a>
+          <a href="interpretacje.html#miedzynarodowe">Międzynarodowe</a>
+          <a href="interpretacje.html#pracownicze">Świadczenia pracownicze</a>
+        </div>
         <div class="flex flex-wrap gap-3 mt-8 fade-up">
           <a href="interpretacje.html" class="px-6 py-3 bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 shadow-soft">Zobacz usługę</a>
           <a href="kontakt.html" class="px-6 py-3 bg-white/10 text-white rounded-xl ring-1 ring-white/40 hover:bg-white/20">Wyślij zapytanie</a>
@@ -90,42 +75,67 @@
   <!-- Pasek zaufania -->
   <section class="bg-white">
     <div class="max-w-7xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-6 text-center">
-      <div class="card p-5 fade-up"><p class="font-semibold">100% fokus na interpretacje</p><p class="text-slate-600 text-sm">Nie robimy „wszystkiego”. Dzięki temu działamy szybciej i skuteczniej.</p></div>
-      <div class="card p-5 fade-up"><p class="font-semibold">Transparentny proces</p><p class="text-slate-600 text-sm">Checklisty, terminy, jasne etapy – wiesz, co się dzieje.</p></div>
-      <div class="card p-5 fade-up"><p class="font-semibold">Ochrona w praktyce</p><p class="text-slate-600 text-sm">Przekładamy odpowiedź KIS na działania w firmie.</p></div>
+      <div class="card p-5 fade-up"><p class="font-semibold">100% fokus na interpretacje</p><p class="text-slate-600 text-sm">Skupiamy się wyłącznie na interpretacjach KIS – dzięki temu działamy szybciej.</p></div>
+      <div class="card p-5 fade-up"><p class="font-semibold">Transparentny proces</p><p class="text-slate-600 text-sm">Checklisty, terminy, jasne etapy – zawsze wiesz, co się dzieje.</p></div>
+      <div class="card p-5 fade-up"><p class="font-semibold">Ochrona w praktyce</p><p class="text-slate-600 text-sm">Przekładamy odpowiedź KIS na działania w Twojej firmie.</p></div>
     </div>
   </section>
 
-  <!-- Problemy -->
+  <!-- Problemy (z przyciskami "Zobacz usługę") -->
   <section class="max-w-7xl mx-auto px-4 py-16">
     <h2 class="text-3xl font-bold text-center mb-12 fade-up">W czym najczęściej pomagamy</h2>
     <div class="grid md:grid-cols-3 gap-8">
-      <div class="card p-6 shadow-soft fade-up"><img src="https://images.unsplash.com/photo-1554224155-1696413565d3?q=80&w=1200&auto=format&fit=crop" class="rounded-xl mb-4 h-40 w-full object-cover" alt="VAT"><h3 class="text-xl font-semibold mb-2">Stawki VAT</h3><p class="mb-4">Klasyfikacja towaru/usługi, PKWiU/CN, stanowisko – tak, by uzyskać ochronę.</p><a href="interpretacje.html#zakres" class="text-indigo-700 hover:underline">Jak to robimy →</a></div>
-      <div class="card p-6 shadow-soft fade-up"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1200&auto=format&fit=crop" class="rounded-xl mb-4 h-40 w-full object-cover" alt="Koszty"><h3 class="text-xl font-semibold mb-2">Koszty i przychody</h3><p class="mb-4">Czy wydatek jest kosztem? Czy świadczenie jest przychodem? Zabezpiecz rozliczenia.</p><a href="interpretacje.html#zakres" class="text-indigo-700 hover:underline">Przykłady spraw →</a></div>
-      <div class="card p-6 shadow-soft fade-up"><img src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?q=80&w=1200&auto=format&fit=crop" class="rounded-xl mb-4 h-40 w-full object-cover" alt="Preferencje"><h3 class="text-xl font-semibold mb-2">Preferencje podatkowe</h3><p class="mb-4">IP Box, estoński CIT – potwierdzimy prawo do preferencji przed ich zastosowaniem.</p><a href="interpretacje.html#zakres" class="text-indigo-700 hover:underline">Sprawdź warunki →</a></div>
-    </div>
-  </section>
-
-  <!-- Jak działamy (snapshot) -->
-  <section class="bg-gradient-to-br from-indigo-50 to-white">
-    <div class="max-w-7xl mx-auto px-4 py-16">
-      <h2 class="text-3xl font-bold text-center mb-10 fade-up">Jak działamy</h2>
-      <div class="grid md:grid-cols-4 gap-6 text-center">
-        <div class="card p-6 fade-up"><p class="font-semibold mb-1">1. Konsultacja</p><p class="text-sm text-slate-600">Wstępna ocena i roadmapa działań.</p></div>
-        <div class="card p-6 fade-up"><p class="font-semibold mb-1">2. Analiza</p><p class="text-sm text-slate-600">Linie interpretacyjne, ryzyka, warianty pytań.</p></div>
-        <div class="card p-6 fade-up"><p class="font-semibold mb-1">3. Wniosek</p><p class="text-sm text-slate-600">Opis + stanowisko, złożenie do KIS.</p></div>
-        <div class="card p-6 fade-up"><p class="font-semibold mb-1">4. Decyzja</p><p class="text-sm text-slate-600">Odbiór i wdrożenie w firmie.</p></div>
+      <div class="card p-6 shadow-soft fade-up">
+        <img src="https://images.unsplash.com/photo-1554224155-1696413565d3?q=80&w=1200&auto=format&fit=crop" class="rounded-xl mb-4 h-40 w-full object-cover" alt="VAT">
+        <h3 class="text-xl font-semibold mb-2">Stawki VAT</h3>
+        <p class="mb-4">Klasyfikacja PKWiU/CN, usługi złożone, zestawy. Przygotujemy opis i pytania tak, by uzyskać ochronę.</p>
+        <div class="flex gap-2">
+          <a href="interpretacje.html#vat" class="px-3 py-2 text-sm bg-indigo-50 rounded hover:bg-indigo-100">Zobacz usługę</a>
+          <a href="case-studies.html" class="px-3 py-2 text-sm border rounded hover:bg-slate-50">Case study</a>
+        </div>
+      </div>
+      <div class="card p-6 shadow-soft fade-up">
+        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1200&auto=format&fit=crop" class="rounded-xl mb-4 h-40 w-full object-cover" alt="Koszty">
+        <h3 class="text-xl font-semibold mb-2">Koszty i przychody</h3>
+        <p class="mb-4">Czy wydatek jest kosztem? Czy świadczenie stanowi przychód? Zabezpiecz rozliczenia interpretacją.</p>
+        <div class="flex gap-2">
+          <a href="interpretacje.html#koszty" class="px-3 py-2 text-sm bg-indigo-50 rounded hover:bg-indigo-100">Zobacz usługę</a>
+          <a href="blog.html" class="px-3 py-2 text-sm border rounded hover:bg-slate-50">Poradnik</a>
+        </div>
+      </div>
+      <div class="card p-6 shadow-soft fade-up">
+        <img src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?q=80&w=1200&auto=format&fit=crop" class="rounded-xl mb-4 h-40 w-full object-cover" alt="Preferencje podatkowe">
+        <h3 class="text-xl font-semibold mb-2">Preferencje podatkowe</h3>
+        <p class="mb-4">IP Box, estoński CIT – potwierdzimy prawo do preferencji przed ich zastosowaniem.</p>
+        <div class="flex gap-2">
+          <a href="interpretacje.html#preferencje" class="px-3 py-2 text-sm bg-indigo-50 rounded hover:bg-indigo-100">Zobacz usługę</a>
+          <a href="post-6.html" class="px-3 py-2 text-sm border rounded hover:bg-slate-50">Checklist</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Referencje (slider) -->
+  <!-- Galeria obrazów (więcej zdjęć) -->
+  <section class="max-w-7xl mx-auto px-4 pb-4">
+    <h2 class="text-2xl font-bold mb-4 fade-up">Jak pracujemy (w obrazach)</h2>
+    <div class="gallery fade-up" role="list">
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop" alt="Analiza dokumentów" role="listitem">
+      <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=800&auto=format&fit=crop" alt="Praca zespołowa" role="listitem">
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop" alt="Warsztaty z klientem" role="listitem">
+      <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop" alt="Spotkanie projektowe" role="listitem">
+      <img src="https://images.unsplash.com/photo-1531497865144-0464ef8fb9a3?q=80&w=800&auto=format&fit=crop" alt="Przygotowanie wniosku" role="listitem">
+      <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=800&auto=format&fit=crop" alt="Kontrola jakości" role="listitem">
+    </div>
+  </section>
+
+  <!-- Referencje -->
   <section class="max-w-7xl mx-auto px-4 py-16">
     <h2 class="text-3xl font-bold text-center mb-8 fade-up">Co mówią klienci</h2>
     <div id="testi-rail" class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-2">
-      <figure class="card p-6 min-w-[320px] snap-start fade-up"><blockquote class="text-slate-700">„Dostaliśmy jasne pytania i szybkie złożenie – decyzja przyszła bez wezwań.”</blockquote><figcaption class="mt-3 text-sm text-slate-500">E‑commerce, VAT</figcaption></figure>
-      <figure class="card p-6 min-w-[320px] snap-start fade-up"><blockquote class="text-slate-700">„Świetna komunikacja, konkretne terminy. Interpretacja potwierdziła brak przychodu pracownika.”</blockquote><figcaption class="mt-3 text-sm text-slate-500">Usługi B2B, PIT</figcaption></figure>
-      <figure class="card p-6 min-w-[320px] snap-start fade-up"><blockquote class="text-slate-700">„Dzięki audytowi uniknęliśmy złej klasyfikacji. IP Box wdrożony bezpiecznie.”</blockquote><figcaption class="mt-3 text-sm text-slate-500">Produkcja/IT, IP Box</figcaption></figure>
+      <figure class="card p-6 min-w-[320px] snap-start fade-up"><blockquote class="text-slate-700">„Jasne pytania i szybkie złożenie – decyzja bez wezwań.”</blockquote><figcaption class="mt-3 text-sm text-slate-500">E‑commerce, VAT</figcaption></figure>
+      <figure class="card p-6 min-w-[320px] snap-start fade-up"><blockquote class="text-slate-700">„Komunikacja na medal. Potwierdzony brak przychodu pracownika.”</blockquote><figcaption class="mt-3 text-sm text-slate-500">Usługi B2B, PIT</figcaption></figure>
+      <figure class="card p-6 min-w-[320px] snap-start fade-up"><blockquote class="text-slate-700">„Dzięki audytowi uniknęliśmy złej klasyfikacji. IP Box wdrożony.”</blockquote><figcaption class="mt-3 text-sm text-slate-500">Produkcja/IT, IP Box</figcaption></figure>
+      <figure class="card p-6 min-w-[320px] snap-start fade-up"><blockquote class="text-slate-700">„Świetne wsparcie przy odpowiedziach na wezwania KIS.”</blockquote><figcaption class="mt-3 text-sm text-slate-500">SaaS, VAT</figcaption></figure>
     </div>
   </section>
 
@@ -133,18 +143,23 @@
   <section class="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white py-12">
     <div class="max-w-7xl mx-auto px-4 md:flex items-center justify-between">
       <div class="fade-up"><h3 class="text-2xl font-semibold">Masz konkretny problem podatkowy?</h3><p class="text-indigo-100">Opisz go – wrócimy z planem i wyceną.</p></div>
-      <a href="kontakt.html" class="mt-4 md:mt-0 px-6 py-3 bg-white text-indigo-700 rounded-xl hover:bg-slate-100">Wyślij zapytanie</a>
+      <div class="flex gap-2">
+        <a href="interpretacje.html" class="mt-4 md:mt-0 px-6 py-3 bg-white text-indigo-700 rounded-xl hover:bg-slate-100">Zobacz usługę</a>
+        <a href="kontakt.html" class="mt-4 md:mt-0 px-6 py-3 bg-white/10 text-white rounded-xl ring-1 ring-white/40 hover:bg-white/20">Wyślij zapytanie</a>
+      </div>
     </div>
   </section>
 
   <!-- Blog teaser -->
   <section class="max-w-7xl mx-auto px-4 py-16">
     <div class="flex items-end justify-between mb-8"><h2 class="text-3xl font-bold fade-up">Z bloga</h2><a href="blog.html" class="text-indigo-700 hover:underline">Wszystkie wpisy →</a></div>
-    <div class="grid md:grid-cols-4 gap-8">
-      <article class="card overflow-hidden shadow-soft fade-up"><img src="assets/cover-1.png" class="h-44 w-full object-cover" alt=""><div class="p-6"><h3 class="text-lg font-semibold mb-2"><a href="post-1.html" class="hover:underline">Kiedy warto wystąpić o interpretację?</a></h3><p class="text-slate-600">5 sygnałów, że interpretacja to właściwa ścieżka.</p></div></article>
-      <article class="card overflow-hidden shadow-soft fade-up"><img src="assets/cover-2.png" class="h-44 w-full object-cover" alt=""><div class="p-6"><h3 class="text-lg font-semibold mb-2"><a href="post-2.html" class="hover:underline">Opis stanu faktycznego – checklista</a></h3><p class="text-slate-600">Co przygotować, żeby uniknąć wezwań.</p></div></article>
-      <article class="card overflow-hidden shadow-soft fade-up"><img src="assets/cover-3.png" class="h-44 w-full object-cover" alt=""><div class="p-6"><h3 class="text-lg font-semibold mb-2"><a href="post-3.html" class="hover:underline">Najczęstsze błędy we wnioskach</a></h3><p class="text-slate-600">Jak zwiększyć skuteczność i tempo decyzji.</p></div></article>
-      <article class="card overflow-hidden shadow-soft fade-up"><img src="assets/cover-4.png" class="h-44 w-full object-cover" alt=""><div class="p-6"><h3 class="text-lg font-semibold mb-2"><a href="post-4.html" class="hover:underline">Jak odpowiadać na wezwania KIS?</a></h3><p class="text-slate-600">Schemat odpowiedzi i dobre praktyki.</p></div></article>
+    <div class="grid md:grid-cols-3 lg:grid-cols-6 gap-8">
+      <article class="card overflow-hidden shadow-soft fade-up"><img src="assets/cover-1.png" class="h-36 w-full object-cover" alt=""><div class="p-4"><h3 class="text-base font-semibold"><a href="post-1.html" class="hover:underline">Kiedy wnioskować o interpretację?</a></h3></div></article>
+      <article class="card overflow-hidden shadow-soft fade-up"><img src="assets/cover-2.png" class="h-36 w-full object-cover" alt=""><div class="p-4"><h3 class="text-base font-semibold"><a href="post-2.html" class="hover:underline">Opis stanu faktycznego – checklista</a></h3></div></article>
+      <article class="card overflow-hidden shadow-soft fade-up"><img src="assets/cover-3.png" class="h-36 w-full object-cover" alt=""><div class="p-4"><h3 class="text-base font-semibold"><a href="post-3.html" class="hover:underline">Najczęstsze błędy we wnioskach</a></h3></div></article>
+      <article class="card overflow-hidden shadow-soft fade-up"><img src="assets/cover-4.png" class="h-36 w-full object-cover" alt=""><div class="p-4"><h3 class="text-base font-semibold"><a href="post-4.html" class="hover:underline">Jak odpowiadać na wezwania KIS?</a></h3></div></article>
+      <article class="card overflow-hidden shadow-soft fade-up"><img src="assets/cover-5.png" class="h-36 w-full object-cover" alt=""><div class="p-4"><h3 class="text-base font-semibold"><a href="post-5.html" class="hover:underline">WIS a interpretacja – różnice</a></h3></div></article>
+      <article class="card overflow-hidden shadow-soft fade-up"><img src="assets/cover-6.png" class="h-36 w-full object-cover" alt=""><div class="p-4"><h3 class="text-base font-semibold"><a href="post-6.html" class="hover:underline">IP Box – dokumentacja</a></h3></div></article>
     </div>
   </section>
 
@@ -152,7 +167,7 @@
     <div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-4 gap-8">
       <div class="col-span-2">
         <p class="font-semibold text-white">InterpretacjeIndywidualne.pl</p>
-        <p class="text-sm mt-2">Specjalizacja: pomoc w uzyskaniu interpretacji indywidualnych KIS. Nie świadczymy ogólnych porad ani nie uzyskujemy objaśnień MF.</p>
+        <p class="text-sm mt-2">Specjalizacja: pomoc w uzyskaniu interpretacji indywidualnych KIS. Nie uzyskujemy interpretacji ogólnych ani objaśnień MF.</p>
       </div>
       <div class="text-sm">
         <p class="font-semibold text-white mb-2">Nawigacja</p>
@@ -178,7 +193,6 @@
     <div class="text-center text-xs border-t border-slate-800 py-4">© 2025 InterpretacjeIndywidualne.pl</div>
   </footer>
 
-  <!-- Modal -->
   <div id="modal" class="fixed inset-0 bg-black/50 hidden items-center justify-center p-4">
     <div class="bg-white max-w-2xl w-full rounded-2xl shadow-xl overflow-hidden">
       <div class="flex items-center justify-between px-5 py-3 border-b">
@@ -191,6 +205,5 @@
 
   <a href="kontakt.html" class="sticky-cta px-4 py-3 rounded-full bg-indigo-600 text-white shadow hover:bg-indigo-700">Opisz swój problem</a>
   <button id="backTop" class="hidden fixed bottom-6 right-6 translate-y-16 p-3 rounded-full bg-indigo-600 text-white shadow hover:bg-indigo-700" aria-label="Do góry">↑</button>
-  
 </body>
 </html>

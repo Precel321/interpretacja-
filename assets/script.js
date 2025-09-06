@@ -1,17 +1,14 @@
 
 (function(){
-  // Mobile nav
   const menuBtn = document.getElementById('menuBtn');
   const mobileNav = document.getElementById('mobileNav');
   if (menuBtn) menuBtn.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
 
-  // Active nav link
   const current = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('#mainNav a').forEach(a => {
-    if (a.getAttribute('href') === current) a.classList.add('nav-active');
+    if (a.getAttribute('href') === current) { a.classList.add('nav-active'); a.setAttribute('aria-current', 'page'); }
   });
 
-  // Back-to-top
   const backTop = document.getElementById('backTop');
   if (backTop) {
     window.addEventListener('scroll', () => {
@@ -20,13 +17,12 @@
     backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   }
 
-  // Intersection animations
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
   }, { threshold: .15 });
   document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
 
-  // Testimonials carousel (simple auto-advance)
+  // Simple carousel auto-scroll (if present)
   const rail = document.getElementById('testi-rail');
   if (rail) {
     let idx = 0;
@@ -36,15 +32,15 @@
     }, 4500);
   }
 
-  // Policy modal
+  // Modal for policies
   const modal = document.getElementById('modal');
   const modalTitle = document.getElementById('modalTitle');
   const modalBody = document.getElementById('modalBody');
   const modalClose = document.getElementById('modalClose');
   const policies = {
-    polityka: { title: 'Polityka prywatności', body: '<p>Administratorem danych jest InterpretacjeIndywidualne.pl. Dane przetwarzamy wyłącznie w celu obsługi zapytania i świadczenia usług.</p>' },
-    cookies: { title: 'Polityka cookies', body: '<p>Serwis korzysta z niezbędnych plików cookies. Analityczne/marketingowe uruchamiamy wyłącznie po zgodzie.</p>' },
-    regulamin: { title: 'Regulamin', body: '<p>Usługi doradcze świadczone są na podstawie umowy zawartej po wstępnej kwalifikacji sprawy.</p>' }
+    polityka: { title: 'Polityka prywatności', body: '<p>Administratorem danych jest InterpretacjeIndywidualne.pl. Przetwarzamy dane wyłącznie w celu obsługi zapytania i świadczenia usług.</p>' },
+    cookies: { title: 'Polityka cookies', body: '<p>Serwis korzysta z niezbędnych plików cookies. Analityczne/marketingowe uruchamiamy po zgodzie.</p>' },
+    regulamin: { title: 'Regulamin', body: '<p>Usługi doradcze świadczone są na podstawie umowy po kwalifikacji sprawy.</p>' }
   };
   document.querySelectorAll('.policy-link').forEach(el => el.addEventListener('click', (e) => {
     e.preventDefault();
