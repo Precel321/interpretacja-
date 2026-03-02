@@ -1,0 +1,1109 @@
+diff --git a/storna b/storna
+index 3771d69835cb28e9b626a6a992a7a29c4cca10fb..90eecbea6772255d8f66f9d17cefea7cfc19e8c0 100644
+--- a/storna
++++ b/storna
+@@ -7,744 +7,857 @@ import { Textarea } from "@/components/ui/textarea";
+ import { Badge } from "@/components/ui/badge";
+ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+ import { Checkbox } from "@/components/ui/checkbox";
+ import { Separator } from "@/components/ui/separator";
+ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+ import { Phone, Mail, MapPin, ShieldCheck, HeartHandshake, Scale, ScrollText, Star, MessageCircle, Calendar, Search, ChevronRight, FileText, Building2, Globe, Cookie, CheckCircle2, BookOpen, Users, Handshake } from "lucide-react";
+ 
+ // ===================== KONFIGURACJA =====================
+ const BRAND = {
+   name: "LumenLex",
+   email: "zuzannajakubik@lumenlex.pl",
+   phone: "+48 123 456 789",
+   address: "ul. Kwidzyńska 1/1A, 82-200 Malbork",
+   city: "Malbork",
+   nip: "5792291121",
+   regon: "526076705",
+   // Forma prawna i dane CEIDG
+   legalForm: "indywidualna działalność gospodarcza",
+   entrepreneur: "Zuzanna Jakubik",
+   maritalProperty: "Brak",
+   ceidgStart: "2023-09-01",
+   companyFullName: "ZWA PEŁNA — Kancelaria Radcy Prawnego Zuzanna Jakubik",
+   // Analytics (GA4) — podmień na swój identyfikator np. G-ABCD123456
+   gaId: "G-XXXXXXXXXX",
+   // Google Maps — domyślnie używamy embed z adresem; możesz też podać współrzędne
+-  mapsQuery: "ul. Kwidzyńs
++  mapsQuery: "ul. Kwidzyńska 1/1A, 82-200 Malbork",
++};
+ 
+ // ===================== DANE STRONY =====================
+ const services = [
+   {
+-    key: "zasilki",
+-    name: "Świadczenia i zasiłki",
+-    desc: "Kompleksowa pomoc w sprawach świadczeń rodzinnych, opiekuńczych, macierzyńskich i chorobowych.",
++    key: "kis",
++    name: "Wniosek o interpretację indywidualną (KIS)",
++    desc: "Kompleksowe przygotowanie opisu stanu faktycznego/zdarzenia przyszłego i pytań do Krajowej Informacji Skarbowej.",
+     bullets: [
+-      "Wnioski, odwołania, skargi do WSA",
+-      "Świadczenie 800+, rodzinny kapitał opiekuńczy",
+-      "Zasiłek macierzyński/chorobowy, opieka nad dzieckiem",
++      "Audyt linii interpretacyjnych i ryzyk",
++      "Precyzyjne pytania i stanowisko z uzasadnieniem",
++      "Złożenie wniosku i wsparcie korespondencji z organem",
+     ],
+-    tags: ["świadczenia", "ZUS", "opieka"],
++    tags: ["KIS", "VAT", "PIT", "CIT"],
+     icon: <ScrollText className="w-6 h-6" />,
++    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80",
+   },
+   {
+-    key: "praca",
+-    name: "Prawo pracy (kobiety)",
+-    desc: "Równe traktowanie, ciąża w pracy, mobbing, elastyczny czas pracy i powrót po urlopie.",
++    key: "zus",
++    name: "Interpretacja składkowa ZUS",
++    desc: "Interpretacje dotyczące podstawy wymiaru składek, oskładkowania benefitów i modeli współpracy B2B.",
+     bullets: [
+-      "Reprezentacja w sądzie pracy",
+-      "Negocjacje z pracodawcą, ugody",
+-      "Ochrona w ciąży i po porodzie",
++      "Analiza ryzyka i wariantów rozliczeń",
++      "Przygotowanie argumentacji do pytań o składki",
++      "Wsparcie po otrzymaniu interpretacji",
+     ],
+-    tags: ["praca", "równe traktowanie"],
++    tags: ["ZUS", "składki", "B2B"],
+     icon: <Scale className="w-6 h-6" />,
++    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80",
+   },
+   {
+-    key: "rodzina",
+-    name: "Prawo rodzinne",
+-    desc: "Rozwód i separacja, alimenty, kontakty z dziećmi, zabezpieczenia tymczasowe.",
++    key: "gus",
++    name: "Informacja klasyfikacyjna GUS (PKWiU/PKOB/CN)",
++    desc: "Dobór właściwej klasyfikacji towaru/usługi dla stawek i rozliczeń podatkowych.",
+     bullets: [
+-      "Pozwy, wnioski, zabezpieczenia",
+-      "Mediacje i ugodowe zakończenia spraw",
+-      "Reprezentacja w sądzie rodzinnym",
++      "Opis produktu/usługi pod klasyfikację",
++      "Wniosek do GUS i obsługa uzupełnień",
++      "Przełożenie klasyfikacji na praktykę księgową",
+     ],
+-    tags: ["rodzina", "alimenty"],
++    tags: ["GUS", "PKWiU", "CN"],
+     icon: <HeartHandshake className="w-6 h-6" />,
++    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+   },
+   {
+-    key: "przemoc",
+-    name: "Przemoc domowa i ochrona",
+-    desc: "Szybkie środki ochrony: nakaz opuszczenia mieszkania, zakaz zbliżania, Niebieska Karta.",
++    key: "vat",
++    name: "WIS i stawki VAT",
++    desc: "Wiążąca Informacja Stawkowa dla produktów i usług z ryzykiem błędnej stawki VAT.",
+     bullets: [
+-      "Wnioski o środki ochrony w 24–48 h",
+-      "Kontakt z Policją i prokuraturą",
+-      "Wsparcie psychologiczne we współpracy z NGO",
++      "Mapowanie towaru/usługi do pozycji CN/PKWiU",
++      "Przygotowanie uzasadnienia i załączników",
++      "Checklista wdrożeniowa po decyzji",
+     ],
+-    tags: ["ochrona", "bezpieczeństwo"],
++    tags: ["VAT", "WIS", "stawki"],
+     icon: <ShieldCheck className="w-6 h-6" />,
++    image: "https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=1200&q=80",
+   },
+   {
+-    key: "medyczne",
+-    name: "Prawo medyczne",
+-    desc: "Prawa pacjentów, błędy medyczne, prawa w ciąży i porodzie, dokumentacja medyczna.",
++    key: "ulgi",
++    name: "Ulgi i preferencje podatkowe",
++    desc: "Bezpieczne zastosowanie ulg (B+R, IP Box, estoński CIT, ulgi inwestycyjne) na podstawie interpretacji.",
+     bullets: [
+-      "Analiza dokumentacji i opinie biegłych",
+-      "Pozwy o odszkodowanie i zadośćuczynienie",
+-      "Dostęp do dokumentacji i prawa pacjenta",
++      "Dobór właściwej ścieżki zabezpieczenia podatkowego",
++      "Modelowanie stanu faktycznego i dokumentacji",
++      "Wytyczne dla działu księgowego i zarządu",
+     ],
+-    tags: ["pacjent", "medyczne"],
++    tags: ["ulgi", "CIT", "bezpieczeństwo"],
+     icon: <ShieldCheck className="w-6 h-6" />,
++    image: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80",
+   },
+   {
+-    key: "cudzoziemki",
+-    name: "Wsparcie dla cudzoziemek",
+-    desc: "Legalizacja pobytu, dostęp do świadczeń i ochrony, wsparcie językowe.",
++    key: "wdrozenie",
++    name: "Wdrożenie po interpretacji",
++    desc: "Nie kończymy na decyzji – przygotowujemy plan wdrożenia i dowody należytej staranności.",
+     bullets: [
+-      "Pobyt czasowy i stały, praca",
+-      "Tłumaczenia przysięgłe i asysta w urzędach",
+-      "Świadczenia rodzinne dla cudzoziemek",
++      "Procedury księgowe i opis procesu",
++      "Checklista dokumentów dowodowych",
++      "Wsparcie przy kontroli i zapytaniach organów",
+     ],
+-    tags: ["cudzoziemki", "pobyt"],
++    tags: ["compliance", "proces", "kontrola"],
+     icon: <ScrollText className="w-6 h-6" />,
++    image: "https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1200&q=80",
+   },
+ ];
+ 
+ const testimonials = [
+   {
+-    name: "Agnieszka K.",
+-    text: "Dzięki LumenLex odzyskałam należny zasiłek i uporządkowałam sytuację zawodową po powrocie z urlopu macierzyńskiego.",
++    name: "Joanna, CFO w e-commerce",
++    text: "Dzięki precyzyjnemu opisowi zdarzenia przyszłego dostaliśmy interpretację KIS bez dodatkowych wezwań. Wdrożenie było szybkie i bezpieczne.",
+   },
+   {
+-    name: "Marta P.",
+-    text: "Szybka reakcja i realna ochrona – nakaz opuszczenia mieszkania wydany w 48 godzin. Czuję się bezpiecznie.",
++    name: "Marek, biuro rachunkowe",
++    text: "Świetny standard dokumentacji: dostaliśmy gotowe pisma, listę załączników i instrukcję dla klienta. Oszczędność wielu godzin pracy.",
+   },
+   {
+-    name: "Elena S.",
+-    text: "Jako cudzoziemka dostałam jasne wskazówki i wsparcie w urzędach. Wszystko po polsku i angielsku.",
++    name: "Katarzyna, właścicielka firmy usługowej",
++    text: "Najbardziej doceniam, że poza samym wnioskiem dostałam checklistę procesową i rekomendacje dowodowe na wypadek kontroli.",
+   },
+ ];
+ 
+ const posts = [
+   {
+-    title: "Jak uzyskać zasiłek macierzyński – lista dokumentów i terminy",
+-    excerpt: "Praktyczny przewodnik po wnioskach do ZUS i najczęstszych błędach.",
++    title: "Jak napisać stan faktyczny do interpretacji KIS, żeby uniknąć wezwania",
++    excerpt: "7 elementów, które zwiększają szansę na szybką i użyteczną interpretację.",
+     date: "2025-06-10",
+   },
+   {
+-    title: "Ochrona kobiet w pracy – co naprawdę gwarantuje Kodeks pracy?",
+-    excerpt: "Najważniejsze uprawnienia i jak egzekwować je w praktyce.",
++    title: "WIS a klasyfikacja PKWiU/CN – co wybrać i kiedy",
++    excerpt: "Porównanie ścieżek zabezpieczenia stawek VAT dla towarów i usług.",
+     date: "2025-05-22",
+   },
+   {
+-    title: "Prawa pacjentki na porodówce – 7 konkretów",
+-    excerpt: "Jak rozmawiać z personelem i czego wymagać zgodnie z prawem.",
++    title: "Interpretacja ZUS dla B2B: najczęstsze pułapki",
++    excerpt: "Praktyczna lista pytań i dokumentów przed złożeniem wniosku.",
+     date: "2025-04-30",
+   },
+ ];
+ 
+ const faqs = [
+-  { q: "Czy pierwsza konsultacja jest płatna?", a: "Oferujemy krótką, 15‑minutową rozmowę wstępną bez opłat, aby ocenić sprawę i zaproponować możliwe ścieżki działania." },
+-  { q: "Czy prowadzicie sprawy online?", a: "Tak. Konsultacje prowadzimy telefonicznie, przez wideo oraz e‑mail. Dokumenty podpisujemy kwalifikowanym podpisem lub przez ePUAP." },
+-  { q: "Jak wygląda wycena?", a: "Transparentnie: stawka godzinowa, ryczałt za etap lub success fee (tam, gdzie to etyczne i dopuszczalne)." },
+-  { q: "Czy zapewniacie dyskrecję?", a: "Tak. Tajemnica zawodowa i procedury RODO. Korzystamy z bezpiecznych kanałów komunikacji i szyfrowania." },
++  { q: "Ile trwa uzyskanie interpretacji?", a: "KIS/ZUS zwykle do 3 miesięcy od kompletnego wniosku. W praktyce czas zależy od jakości opisu stanu faktycznego i ewentualnych wezwań do uzupełnień." },
++  { q: "Czy mogę zlecić tylko przygotowanie pytań i stanowiska?", a: "Tak, pracujemy modułowo: audyt, przygotowanie wniosku, złożenie i korespondencja, a także samo wdrożenie po otrzymaniu interpretacji." },
++  { q: "Czy obsługujecie firmy z całej Polski?", a: "Tak. Cały proces może być realizowany zdalnie: warsztat, dokumenty, akceptacja i złożenie wniosku." },
++  { q: "Co jeśli organ wezwie do uzupełnienia?", a: "W ramach wybranych pakietów przygotowujemy odpowiedź na wezwanie oraz aktualizujemy argumentację i załączniki." },
++  { q: "Czy interpretacja chroni, jeśli zmieni się stan faktyczny?", a: "Ochrona działa w granicach opisanego stanu faktycznego/zdarzenia przyszłego. Dlatego duży nacisk kładziemy na precyzję opisu i scenariusze zmian." },
++  { q: "Czy pomagacie przy wdrożeniu po otrzymaniu decyzji?", a: "Tak — przygotowujemy checklistę wdrożeniową, zakres dokumentacji dowodowej i rekomendacje dla księgowości/zarządu." },
++  { q: "Czy przygotowujecie analizę ryzyk przed złożeniem wniosku?", a: "Tak, to pierwszy etap prac. Otrzymujesz mapę ryzyk oraz rekomendację: interpretacja, WIS, GUS albo inna ścieżka zabezpieczenia." },
+ ];
+ 
+ // ===================== KOMPONENTY =====================
+ function Header() {
+   return (
+-    <header className="sticky top-0 z-40 backdrop-blur bg-white/70 border-b">
++    <header className="sticky top-0 z-40 backdrop-blur bg-white/80 border-b shadow-sm">
+       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+         <div className="flex items-center gap-2">
+           <Scale className="w-6 h-6" />
+           <span className="font-semibold tracking-tight">{BRAND.name}</span>
+         </div>
+         <nav className="hidden md:flex items-center gap-4 text-sm">
+           <a href="#uslugi" className="hover:underline">Usługi</a>
++          <a href="#proces" className="hover:underline">Proces</a>
+           <a href="#jak-pracujemy" className="hover:underline">Jak pracujemy</a>
+           <a href="#o-nas" className="hover:underline">O nas</a>
++          <a href="#pakiety" className="hover:underline">Pakiety</a>
+           <a href="#blog" className="hover:underline">Artykuły</a>
+           <a href="#faq" className="hover:underline">FAQ</a>
+           <a href="#kontakt" className="hover:underline">Kontakt</a>
+         </nav>
+         <div className="flex items-center gap-2">
+           <Button asChild>
+             <a href="#kontakt">Umów konsultację</a>
+           </Button>
+         </div>
+       </div>
+     </header>
+   );
+ }
+ 
+ function Hero() {
+   return (
+-    <section className="bg-gradient-to-b from-rose-50 to-white">
+-      <div className="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-8 items-center">
++    <section className="relative overflow-hidden bg-gradient-to-b from-rose-50 via-white to-slate-50">
++      <div className="pointer-events-none absolute -top-24 -left-24 w-72 h-72 bg-rose-200/40 rounded-full blur-3xl" />
++      <div className="pointer-events-none absolute -bottom-24 -right-16 w-80 h-80 bg-sky-200/40 rounded-full blur-3xl" />
++      <div className="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-8 items-center relative">
+         <div>
+           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-3xl md:text-5xl font-bold tracking-tight">
+-            {BRAND.name} – kancelaria prawna wspierająca kobiety
++            {BRAND.name} – interpretacje podatkowe, ZUS i klasyfikacje GUS
+           </motion.h1>
+           <p className="mt-4 text-slate-700 md:text-lg">
+-            Świadczymy profesjonalną pomoc prawną w sprawach świadczeń i zasiłków, prawa pracy, rodzinnego, ochrony przed przemocą oraz w prawie medycznym.
++            Pomagamy przedsiębiorcom bezpiecznie uzyskać interpretacje KIS i ZUS, informacje GUS oraz WIS. Od strategii pytań po wdrożenie decyzji w księgowości i procesach firmy.
+           </p>
+           <div className="mt-6 flex flex-wrap gap-3">
+             <Badge variant="secondary">RODO i tajemnica zawodowa</Badge>
+             <Badge variant="secondary">Obsługa online</Badge>
+-            <Badge variant="secondary">PL / EN</Badge>
++            <Badge variant="secondary">KIS / ZUS / GUS / WIS</Badge>
+           </div>
+           <div className="mt-8 flex gap-3">
+             <Button asChild size="lg">
+-              <a href="#kontakt">Bezpłatna rozmowa wstępna</a>
++              <a href="#kontakt">Konsultacja strategiczna 20 min</a>
+             </Button>
+             <Button variant="outline" asChild size="lg">
+               <a href="#uslugi">Zobacz usługi</a>
+             </Button>
+           </div>
+           <div className="mt-6 flex items-center gap-4 text-sm text-slate-600">
+             <div className="flex items-center gap-2"><ShieldCheck className="w-4 h-4" /> 100% poufności</div>
+             <div className="flex items-center gap-2"><Star className="w-4 h-4" /> Opinie klientek 4.9/5</div>
+           </div>
+         </div>
+         <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.15 }}>
+           <Card className="shadow-lg">
+             <CardHeader>
+               <CardTitle>Szybki kontakt</CardTitle>
+               <CardDescription>Odpowiemy tego samego dnia roboczego</CardDescription>
+             </CardHeader>
+             <CardContent className="grid gap-3">
+-              <div className="flex items-center gap-2 text-sm"><Phone className="w-4 h-4" /> {BRAND.phone}</div>
+-              <div className="flex items-center gap-2 text-sm"><Mail className="w-4 h-4" /> {BRAND.email}</div>
++              <div className="flex items-center gap-2 text-sm"><Phone className="w-4 h-4" /> <a className="hover:underline" href={`tel:${BRAND.phone.replace(/\s+/g, "")}`}>{BRAND.phone}</a></div>
++              <div className="flex items-center gap-2 text-sm"><Mail className="w-4 h-4" /> <a className="hover:underline" href={`mailto:${BRAND.email}`}>{BRAND.email}</a></div>
+               <div className="flex items-center gap-2 text-sm"><MapPin className="w-4 h-4" /> {BRAND.address}</div>
+             </CardContent>
+             <CardFooter>
+               <Button asChild className="w-full">
+                 <a href="#kontakt"><Calendar className="w-4 h-4 mr-2" /> Umów konsultację</a>
+               </Button>
+             </CardFooter>
+           </Card>
+         </motion.div>
+       </div>
+     </section>
+   );
+ }
+ 
++function ProcessSection() {
++  const stages = [
++    { title: "1. Diagnoza sprawy", text: "Warsztat 45–60 min: cel biznesowy, ryzyka i wybór ścieżki (KIS/ZUS/GUS/WIS).", out: "T+1-2 dni: mapa ryzyk + rekomendacja ścieżki" },
++    { title: "2. Przygotowanie opisu", text: "Porządkujemy stan faktyczny i zdarzenie przyszłe tak, by ograniczyć ryzyko wezwania.", out: "T+3-5 dni: kompletny draft wniosku" },
++    { title: "3. Pytania i stanowisko", text: "Formułujemy pytania oraz argumentację prawnopodatkową pod cel praktyczny, a nie tylko teorię.", out: "T+5-7 dni: wniosek gotowy do złożenia" },
++    { title: "4. Korespondencja z organem", text: "Obsługa wezwań i uzupełnień, doprecyzowanie materiału i argumentów.", out: "Do decyzji: spójna komunikacja z organem" },
++    { title: "5. Wdrożenie po decyzji", text: "Przekładamy decyzję na procedury księgowe i checklistę dowodową na kontrolę.", out: "T+3 dni: plan wdrożenia + compliance" },
++  ];
++
++  return (
++    <section id="proces" className="py-20 bg-slate-50/80">
++      <div className="max-w-6xl mx-auto px-4">
++        <div className="max-w-3xl">
++          <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight">Jak wygląda proces uzyskania interpretacji</h2>
++          <p className="mt-3 text-slate-700">Sekcja wzorowana na praktycznych stronach edukacyjnych: jasno pokazujemy etapy, efekty i odpowiedzialności po obu stronach.</p>
++        </div>
++        <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-5 gap-4 items-stretch">
++          {stages.map((stage, idx) => (
++            <Card key={idx} className="h-full min-w-0 overflow-hidden border-slate-200">
++              <CardHeader>
++                <CardTitle className="text-base leading-snug">{stage.title}</CardTitle>
++              </CardHeader>
++              <CardContent className="text-sm text-slate-700 space-y-3">
++                <p className="break-words">{stage.text}</p>
++                <div className="rounded-lg bg-rose-50 px-3 py-2 text-xs font-medium text-rose-900">Efekt: {stage.out}</div>
++              </CardContent>
++            </Card>
++          ))}
++        </div>
++      </div>
++    </section>
++  );
++}
++
+ function Services() {
+   const [query, setQuery] = useState("");
+   const [selected, setSelected] = useState<string[]>([]);
+   const filtered = useMemo(() => {
+     return services.filter(s => {
+       const matchesQuery = [s.name, s.desc, ...(s.tags||[])].join(" ").toLowerCase().includes(query.toLowerCase());
+       const matchesTags = selected.length === 0 || selected.every(t => s.tags.includes(t));
+       return matchesQuery && matchesTags;
+     });
+   }, [query, selected]);
+ 
+   const allTags = useMemo(() => Array.from(new Set(services.flatMap(s => s.tags))), []);
+   const toggleTag = (t: string) => setSelected(prev => prev.includes(t) ? prev.filter(x => x !== t) : [...prev, t]);
+ 
+   return (
+-    <section id="uslugi" className="py-16 bg-white">
++    <section id="uslugi" className="py-20 bg-gradient-to-b from-white via-slate-50/70 to-white">
+       <div className="max-w-6xl mx-auto px-4">
+         <div className="flex items-end justify-between gap-4">
+           <div>
+-            <h2 className="text-2xl md:text-4xl font-bold tracking-tight">Zakres usług</h2>
++            <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight">Zakres usług</h2>
+             <p className="mt-2 text-slate-700">Wybierz interesujący Cię obszar albo wpisz słowo kluczowe.</p>
+           </div>
+           <div className="w-full md:w-80">
+             <div className="relative">
+               <Search className="w-4 h-4 absolute left-3 top-3" />
+               <Input value={query} onChange={e => setQuery(e.target.value)} placeholder="Szukaj usługi…" className="pl-9" />
+             </div>
+           </div>
+         </div>
+ 
+         <div className="mt-4 flex flex-wrap gap-2">
+           {allTags.map(t => (
+             <label key={t} className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm cursor-pointer ${selected.includes(t) ? 'bg-rose-50 border-rose-200' : ''}`}>
+               <Checkbox checked={selected.includes(t)} onCheckedChange={() => toggleTag(t)} />
+               <span>{t}</span>
+             </label>
+           ))}
+           {selected.length > 0 && (
+             <Button variant="ghost" onClick={() => setSelected([])}>Wyczyść filtry</Button>
+           )}
+         </div>
+ 
+-        <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
++        <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+           {filtered.map((s) => (
+-            <Card key={s.key} className="hover:shadow-lg transition-shadow">
++            <Card key={s.key} className="rounded-2xl hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 h-full min-w-0 overflow-hidden border-slate-200/80 bg-white/90">
++              <div className="aspect-[16/9] overflow-hidden border-b bg-slate-100">
++                <img src={s.image} alt={s.name} className="w-full h-full object-cover" loading="lazy" />
++              </div>
+               <CardHeader>
+                 <div className="flex items-center gap-3">
+                   <div className="p-2 rounded-xl bg-rose-50">{s.icon}</div>
+                   <CardTitle className="text-xl">{s.name}</CardTitle>
+                 </div>
+-                <CardDescription>{s.desc}</CardDescription>
++                <CardDescription className="break-words">{s.desc}</CardDescription>
+               </CardHeader>
+               <CardContent>
+-                <ul className="list-disc list-inside text-sm text-slate-700 space-y-1">
++                <ul className="list-disc list-inside text-sm text-slate-700 space-y-1 break-words">
+                   {s.bullets.map((b, i) => (<li key={i}>{b}</li>))}
+                 </ul>
+               </CardContent>
+               <CardFooter className="flex justify-between items-center">
+                 <Badge variant="secondary" className="capitalize">{s.tags[0]}</Badge>
+                 <Button asChild variant="outline">
+                   <a href="#kontakt">Zapytaj o wycenę <ChevronRight className="w-4 h-4 ml-1" /></a>
+                 </Button>
+               </CardFooter>
+             </Card>
+           ))}
+         </div>
+       </div>
+     </section>
+   );
+ }
+ 
+ function HowWeWork() {
+   const steps = [
+     { icon: <MessageCircle className="w-5 h-5" />, title: "Rozmowa wstępna", text: "15–20 minut bez opłat: zarys sprawy, cele, wstępny plan." },
+     { icon: <FileText className="w-5 h-5" />, title: "Analiza i wycena", text: "Przesyłasz dokumenty, otrzymujesz ofertę (ryczałt/stawka/success fee)." },
+     { icon: <Handshake className="w-5 h-5" />, title: "Pełnomocnictwo", text: "Przygotowujemy umowę i formalności (również zdalnie)." },
+     { icon: <Building2 className="w-5 h-5" />, title: "Reprezentacja", text: "Pisma, wnioski, mediacje, sąd/urzędowe postępowania." },
+     { icon: <CheckCircle2 className="w-5 h-5" />, title: "Zamknięcie i rekomendacje", text: "Podsumowanie sprawy i dalsze kroki prewencyjne." },
+   ];
+   return (
+-    <section id="jak-pracujemy" className="py-16 bg-rose-50/50">
++    <section id="jak-pracujemy" className="py-20 bg-rose-50/60">
+       <div className="max-w-6xl mx-auto px-4">
+-        <h2 className="text-2xl md:text-4xl font-bold tracking-tight">Jak pracujemy</h2>
+-        <div className="mt-8 grid md:grid-cols-5 gap-4">
++        <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight">Jak pracujemy</h2>
++        <div className="mt-8 grid md:grid-cols-5 gap-4 items-stretch">
+           {steps.map((s,i) => (
+-            <Card key={i} className="text-center">
++            <Card key={i} className="text-center h-full min-w-0 overflow-hidden">
+               <CardHeader>
+                 <div className="mx-auto p-2 rounded-xl bg-white border w-10 h-10 flex items-center justify-center">{s.icon}</div>
+                 <CardTitle className="text-base mt-2">{s.title}</CardTitle>
+               </CardHeader>
+               <CardContent>
+-                <p className="text-sm text-slate-700">{s.text}</p>
++                <p className="text-sm text-slate-700 break-words">{s.text}</p>
+               </CardContent>
+             </Card>
+           ))}
+         </div>
+       </div>
+     </section>
+   );
+ }
+ 
+ function About() {
+   return (
+-    <section id="o-nas" className="py-16 bg-white">
++    <section id="o-nas" className="py-20 bg-white">
+       <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-start">
+         <div>
+-          <h2 className="text-2xl md:text-4xl font-bold tracking-tight">O kancelarii</h2>
++          <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight">O kancelarii</h2>
+           <p className="mt-4 text-slate-700">
+             {BRAND.name} to kancelaria prowadzona przez radcę prawnego Zuzannę Jakubik, wpisaną na listę Okręgowej Izby Radców Prawnych w Gdańsku.
+             Poza pracą w spółce świadczącej usługi ochrony prawnej, realizuje się prowadząc własną działalność w zakresie doradztwa prawnego
+             oraz przybliżając nieprawnikom prawną materię.
+           </p>
+           <p className="mt-2 text-slate-700">
+             Interesuje się prawem medycznym oraz teorią i filozofią prawa. Ukończyła studia prawnicze na Wydziale Prawa i Administracji
+             Uniwersytetu Gdańskiego oraz podyplomowe studia z prawa medycznego na Uniwersytecie Warszawskim – oba z wyróżnieniem. Hobbystycznie studiowała kryminologię (Uniwersytet Gdański).
+           </p>
+           <ul className="mt-6 grid sm:grid-cols-2 gap-4 text-sm">
+             <li className="flex items-start gap-3"><ShieldCheck className="w-5 h-5 mt-0.5" /> Poufność i bezpieczeństwo danych (RODO)</li>
+             <li className="flex items-start gap-3"><HeartHandshake className="w-5 h-5 mt-0.5" /> Empatia i szacunek w kontakcie</li>
+             <li className="flex items-start gap-3"><ScrollText className="w-5 h-5 mt-0.5" /> Przejrzyste umowy i wyceny</li>
+             <li className="flex items-start gap-3"><Scale className="w-5 h-5 mt-0.5" /> Doświadczenie w sądzie i urzędach</li>
+           </ul>
+         </div>
+         <Card className="shadow-md">
+           <CardHeader>
+             <CardTitle>Specjalizacje</CardTitle>
+             <CardDescription>Poznaj kluczowe obszary praktyki</CardDescription>
+           </CardHeader>
+           <CardContent className="grid gap-3 text-sm">
+             <div className="flex items-center gap-2"><ShieldCheck className="w-4 h-4" /> Prawo medyczne</div>
+             <div className="flex items-center gap-2"><Scale className="w-4 h-4" /> Prawo pracy</div>
+             <div className="flex items-center gap-2"><HeartHandshake className="w-4 h-4" /> Prawo rodzinne</div>
+             <div className="flex items-center gap-2"><ScrollText className="w-4 h-4" /> Świadczenia i zasiłki</div>
+             <div className="flex items-center gap-2"><ShieldCheck className="w-4 h-4" /> Ochrona przed przemocą</div>
+           </CardContent>
+         </Card>
+       </div>
+     </section>
+   );
+ }
+ 
++function Packages() {
++  const packs = [
++    {
++      name: "Starter",
++      price: "od 2 900 zł netto",
++      desc: "Dla firm, które potrzebują dobrze przygotowanego wniosku i jasnej argumentacji.",
++      items: ["Diagnoza ryzyka", "Draft opisu + pytania + stanowisko", "1 runda poprawek", "Checklista załączników"],
++    },
++    {
++      name: "Standard",
++      price: "od 4 900 zł netto",
++      desc: "Najczęściej wybierany pakiet z obsługą korespondencji po złożeniu.",
++      items: ["Wszystko ze Starter", "Złożenie wniosku", "Obsługa 1 wezwania", "Wdrożenie po decyzji (mini)"],
++    },
++    {
++      name: "Premium",
++      price: "od 7 900 zł netto",
++      desc: "Kompleksowa obsługa dla bardziej złożonych modeli biznesowych.",
++      items: ["Wszystko ze Standard", "Obsługa wielu wezwań", "Warsztat z księgowością", "Pełna checklista compliance"],
++    },
++  ];
++
++  return (
++    <section id="pakiety" className="py-20 bg-white">
++      <div className="max-w-6xl mx-auto px-4">
++        <div className="max-w-3xl">
++          <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight">Pakiety współpracy</h2>
++          <p className="mt-3 text-slate-700">Transparentny zakres i jasny efekt po każdym etapie. Finalna wycena zależy od złożoności stanu faktycznego.</p>
++        </div>
++        <div className="mt-8 grid md:grid-cols-3 gap-6 items-stretch">
++          {packs.map((pack, idx) => (
++            <Card key={idx} className="h-full min-w-0 overflow-hidden border-slate-200">
++              <CardHeader>
++                <CardTitle className="text-xl">{pack.name}</CardTitle>
++                <CardDescription className="text-base font-semibold text-slate-900">{pack.price}</CardDescription>
++                <p className="text-sm text-slate-700 break-words">{pack.desc}</p>
++              </CardHeader>
++              <CardContent>
++                <ul className="list-disc list-inside space-y-1 text-sm text-slate-700 break-words">
++                  {pack.items.map((item, i) => <li key={i}>{item}</li>)}
++                </ul>
++              </CardContent>
++              <CardFooter>
++                <Button asChild className="w-full"><a href="#kontakt">Wybieram {pack.name}</a></Button>
++              </CardFooter>
++            </Card>
++          ))}
++        </div>
++      </div>
++    </section>
++  );
++}
++
++function CaseStudies() {
++  const cases = [
++    {
++      title: "E-commerce: stawka VAT i WIS",
++      problem: "Ryzyko błędnej stawki VAT dla nowej linii produktów.",
++      outcome: "Decyzja WIS + wdrożenie opisu procesu i dokumentacji dowodowej.",
++    },
++    {
++      title: "Software house: interpretacja KIS",
++      problem: "Niepewność co do kwalifikacji przychodów i kosztów w modelu subskrypcyjnym.",
++      outcome: "Interpretacja zabezpieczająca model rozliczeń i checklista dla księgowości.",
++    },
++    {
++      title: "Usługi B2B: interpretacja ZUS",
++      problem: "Wątpliwości co do oskładkowania wybranych świadczeń dodatkowych.",
++      outcome: "Interpretacja + rekomendacje zmian w umowach i procesie raportowania.",
++    },
++  ];
++
++  return (
++    <section id="case-studies" className="py-20 bg-slate-50/80">
++      <div className="max-w-6xl mx-auto px-4">
++        <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight">Case studies (anonimizowane)</h2>
++        <div className="mt-8 grid md:grid-cols-3 gap-6 items-stretch">
++          {cases.map((c, i) => (
++            <Card key={i} className="h-full min-w-0 overflow-hidden">
++              <CardHeader>
++                <CardTitle className="text-lg break-words">{c.title}</CardTitle>
++              </CardHeader>
++              <CardContent className="space-y-3 text-sm text-slate-700">
++                <p><span className="font-semibold text-slate-900">Problem:</span> {c.problem}</p>
++                <p><span className="font-semibold text-slate-900">Efekt:</span> {c.outcome}</p>
++              </CardContent>
++            </Card>
++          ))}
++        </div>
++      </div>
++    </section>
++  );
++}
++
++function StickyMobileCTA() {
++  return (
++    <div className="fixed bottom-4 left-4 right-4 z-40 md:hidden">
++      <Card className="shadow-lg">
++        <CardContent className="py-3 px-3 grid grid-cols-2 gap-2">
++          <Button asChild variant="outline"><a href={`tel:${BRAND.phone.replace(/\s+/g, "")}`}><Phone className="w-4 h-4 mr-2"/>Zadzwoń</a></Button>
++          <Button asChild><a href="#kontakt"><Calendar className="w-4 h-4 mr-2"/>Konsultacja</a></Button>
++        </CardContent>
++      </Card>
++    </div>
++  );
++}
++
+ function Blog() {
+   return (
+-    <section id="blog" className="py-16 bg-rose-50/50">
++    <section id="blog" className="py-20 bg-rose-50/60">
+       <div className="max-w-6xl mx-auto px-4">
+         <div className="flex items-end justify-between">
+-          <h2 className="text-2xl md:text-4xl font-bold tracking-tight">Artykuły i poradniki</h2>
++          <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight">Artykuły i poradniki</h2>
+           <Button variant="outline" asChild>
+             <a href="#kontakt"><FileText className="w-4 h-4 mr-2" /> Zaproponuj temat</a>
+           </Button>
+         </div>
+-        <div className="mt-8 grid md:grid-cols-3 gap-6">
++        <div className="mt-8 grid md:grid-cols-3 gap-6 items-stretch">
+           {posts.map((p, i) => (
+-            <Card key={i} className="hover:shadow-lg transition-shadow">
++            <Card key={i} className="hover:shadow-lg transition-shadow h-full min-w-0 overflow-hidden">
+               <CardHeader>
+                 <CardTitle className="text-xl">{p.title}</CardTitle>
+                 <CardDescription>{new Date(p.date).toLocaleDateString()}</CardDescription>
+               </CardHeader>
+               <CardContent>
+-                <p className="text-slate-700">{p.excerpt}</p>
++                <p className="text-slate-700 break-words">{p.excerpt}</p>
+               </CardContent>
+               <CardFooter>
+                 <Button variant="ghost" asChild>
+                   <a href="#kontakt">Czytaj więcej</a>
+                 </Button>
+               </CardFooter>
+             </Card>
+           ))}
+         </div>
+       </div>
+     </section>
+   );
+ }
+ 
+ function Pricing() {
+   return (
+-    <section id="cennik" className="py-16 bg-white">
++    <section id="cennik" className="py-20 bg-white">
+       <div className="max-w-6xl mx-auto px-4">
+-        <h2 className="text-2xl md:text-4xl font-bold tracking-tight">Wycena i modele rozliczeń</h2>
++        <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight">Wycena i modele rozliczeń</h2>
+         <Tabs defaultValue="ryczalt" className="mt-6">
+           <TabsList>
+             <TabsTrigger value="ryczalt">Ryczałt</TabsTrigger>
+             <TabsTrigger value="godzinowa">Stawka godzinowa</TabsTrigger>
+             <TabsTrigger value="success">Success fee*</TabsTrigger>
+           </TabsList>
+           <TabsContent value="ryczalt">
+             <Card>
+               <CardHeader>
+                 <CardTitle>Ryczałt za etap</CardTitle>
+                 <CardDescription>Stała cena za jasno zdefiniowany zakres prac</CardDescription>
+               </CardHeader>
+               <CardContent className="text-sm text-slate-700 space-y-2">
+                 <p>Najczęściej przy pismach, wnioskach i standardowych postępowaniach urzędowych.</p>
+                 <p>Przed rozpoczęciem prac przesyłamy harmonogram i zakres odpowiedzialności.</p>
+               </CardContent>
+             </Card>
+           </TabsContent>
+           <TabsContent value="godzinowa">
+             <Card>
+               <CardHeader>
+                 <CardTitle>Stawka godzinowa</CardTitle>
+                 <CardDescription>Transparentny raport czasu i zadań</CardDescription>
+               </CardHeader>
+               <CardContent className="text-sm text-slate-700 space-y-2">
+                 <p>Stawka zależna od rodzaju sprawy i pilności.</p>
+                 <p>Comiesięczne podsumowanie czynności i rekomendacji.</p>
+               </CardContent>
+             </Card>
+           </TabsContent>
+           <TabsContent value="success">
+             <Card>
+               <CardHeader>
+                 <CardTitle>Success fee*</CardTitle>
+                 <CardDescription>Element wynagrodzenia zależny od wyniku</CardDescription>
+               </CardHeader>
+               <CardContent className="text-sm text-slate-700 space-y-2">
+                 <p>*Wyłącznie tam, gdzie zgodne z przepisami i etyką zawodową. Zawsze z częścią podstawową.</p>
+                 <p>Przed podpisaniem umowy przedstawiamy warunki i ryzyka.</p>
+               </CardContent>
+             </Card>
+           </TabsContent>
+         </Tabs>
+       </div>
+     </section>
+   );
+ }
+ 
+ function Testimonials() {
+   return (
+-    <section id="opinie" className="py-16 bg-rose-50/50">
++    <section id="opinie" className="py-20 bg-rose-50/60">
+       <div className="max-w-6xl mx-auto px-4">
+-        <h2 className="text-2xl md:text-4xl font-bold tracking-tight">Opinie klientek</h2>
+-        <div className="mt-8 grid md:grid-cols-3 gap-6">
++        <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight">Opinie klientek</h2>
++        <div className="mt-8 grid md:grid-cols-3 gap-6 items-stretch">
+           {testimonials.map((t, i) => (
+-            <Card key={i} className="shadow-sm">
++            <Card key={i} className="shadow-sm h-full min-w-0 overflow-hidden">
+               <CardContent className="pt-6">
+-                <p className="text-slate-700">“{t.text}”</p>
++                <p className="text-slate-700 break-words">“{t.text}”</p>
+                 <div className="mt-4 text-sm font-medium">{t.name}</div>
+               </CardContent>
+             </Card>
+           ))}
+         </div>
+       </div>
+     </section>
+   );
+ }
+ 
+ function FAQ() {
+   return (
+-    <section id="faq" className="py-16 bg-white">
++    <section id="faq" className="py-20 bg-white">
+       <div className="max-w-6xl mx-auto px-4">
+-        <h2 className="text-2xl md:text-4xl font-bold tracking-tight">Najczęstsze pytania</h2>
++        <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight">Najczęstsze pytania</h2>
+         <Accordion type="single" collapsible className="mt-6">
+           {faqs.map((f, i) => (
+             <AccordionItem value={`item-${i}`} key={i}>
+               <AccordionTrigger className="text-left">{f.q}</AccordionTrigger>
+               <AccordionContent className="text-slate-700">{f.a}</AccordionContent>
+             </AccordionItem>
+           ))}
+         </Accordion>
+       </div>
+     </section>
+   );
+ }
+ 
+ function Contact() {
+   const [name, setName] = useState("");
+   const [email, setEmail] = useState("");
+   const [msg, setMsg] = useState("");
+   const [accepted, setAccepted] = useState(false);
+ 
+   const mailto = React.useMemo(() => {
+     const subject = encodeURIComponent(`Zapytanie ze strony – ${BRAND.name}`);
+-    const body = encodeURIComponent(`Imię: ${name}\nEmail: ${email}\n\nWiadomość:\n${msg}`);
++    const body = encodeURIComponent(`Imię: ${name}
++Email: ${email}
++
++Wiadomość:
++${msg}`);
+     return `mailto:${BRAND.email}?subject=${subject}&body=${body}`;
+   }, [name, email, msg]);
+ 
+   const valid = name.trim() && /.+@.+\..+/.test(email) && msg.trim() && accepted;
+ 
+   return (
+-    <section id="kontakt" className="py-16 bg-rose-50/50">
++    <section id="kontakt" className="py-20 bg-rose-50/60">
+       <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-start">
+         <div>
+-          <h2 className="text-2xl md:text-4xl font-bold tracking-tight">Skontaktuj się z nami</h2>
+-          <p className="mt-3 text-slate-700">Opisz krótko swoją sprawę – odpowiemy jeszcze dziś (dni robocze).</p>
++          <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight">Skontaktuj się z nami</h2>
++          <p className="mt-3 text-slate-700">Napisz, czego dotyczy planowana interpretacja (KIS/ZUS/GUS/WIS). Odpowiemy z proponowaną ścieżką i zakresem dokumentów.</p>
+           <div className="mt-6 grid gap-3 text-sm">
+             <div className="flex items-center gap-2"><Phone className="w-4 h-4" /> {BRAND.phone}</div>
+             <div className="flex items-center gap-2"><Mail className="w-4 h-4" /> {BRAND.email}</div>
+             <div className="flex items-center gap-2"><MapPin className="w-4 h-4" /> {BRAND.address}</div>
+           </div>
+-          <Card className="mt-6">
+-            <CardHeader>
+-              <CardTitle>RODO</CardTitle>
+-              <CardDescription>Informacja o przetwarzaniu danych</CardDescription>
+-            </CardHeader>
+-            <CardContent className="text-sm text-slate-700 space-y-2">
+-              <p>Administratorem danych jest {BRAND.name} z siedzibą w {BRAND.city}. Dane przetwarzamy w celu udzielenia odpowiedzi na zapytanie, a następnie świadczenia usług prawnych – zgodnie z tajemnicą zawodową.</p>
+-              <p>Podanie danych jest dobrowolne, ale niezbędne do kontaktu. Przysługuje Ci prawo dostępu i żądania usunięcia danych. Szczegóły w polityce prywatności oraz w pliku <a className="underline" href="/docs/informacja-rodo.pdf" download>„Informacja RODO” (PDF)</a>.</p>
+-            </CardContent>
+-          </Card>
+         </div>
+         <Card className="shadow-md">
+           <CardHeader>
+             <CardTitle>Formularz kontaktowy</CardTitle>
+-            <CardDescription>Wypełnij pola, aby wysłać wiadomość</CardDescription>
++            <CardDescription>Wypełnij pola, aby przygotować wiadomość e-mail</CardDescription>
+           </CardHeader>
+           <CardContent className="grid gap-4">
+             <div>
+               <label className="text-sm">Imię i nazwisko</label>
+               <Input value={name} onChange={e => setName(e.target.value)} placeholder="np. Anna Nowak" />
+             </div>
+             <div>
+               <label className="text-sm">E‑mail</label>
+               <Input value={email} onChange={e => setEmail(e.target.value)} placeholder="np. anna@example.com" type="email" />
+             </div>
+             <div>
+               <label className="text-sm">Wiadomość</label>
+-              <Textarea value={msg} onChange={e => setMsg(e.target.value)} rows={6} placeholder="Krótki opis sprawy…" />
++              <Textarea value={msg} onChange={e => setMsg(e.target.value)} rows={6} placeholder="Np. Interpretacja KIS dot. modelu rozliczeń / klasyfikacja PKWiU..." />
+             </div>
+             <label className="flex items-start gap-2 text-sm">
+               <input type="checkbox" className="mt-1" checked={accepted} onChange={e => setAccepted(e.target.checked)} />
+-              <span>Akceptuję <a className="underline" href="#polityka">politykę prywatności</a> i zgadzam się na kontakt w sprawie zapytania.</span>
++              <span>Akceptuję <a className="underline" href="#polityka">politykę prywatności</a> i zgadzam się na kontakt.</span>
+             </label>
+           </CardContent>
+           <CardFooter className="flex gap-3">
+             <Button asChild disabled={!valid} className="w-full">
+               <a href={valid ? mailto : undefined}>Wyślij e‑mail</a>
+             </Button>
+             <Button variant="outline" className="w-full" onClick={() => { setName(""); setEmail(""); setMsg(""); setAccepted(false); }}>Wyczyść</Button>
+           </CardFooter>
+         </Card>
+       </div>
+       <div className="max-w-6xl mx-auto px-4 mt-8">
+         <div className="rounded-2xl overflow-hidden border">
+-          {/* Google Maps Embed z pinezką/NAP (bez klucza) */}
+           <iframe
+             title="Mapa dojazdu"
+             className="w-full h-64"
+             loading="lazy"
+             referrerPolicy="no-referrer-when-downgrade"
+             src={`https://www.google.com/maps?q=${encodeURIComponent(BRAND.mapsQuery)}&output=embed`}
+           />
+         </div>
+       </div>
+     </section>
+   );
+ }
+-          <iframe title="Mapa dojazdu" className="w-full h-64" src="https://www.openstreetmap.org/export/embed.html?bbox=18.6%2C54.3%2C18.7%2C54.4&layer=mapnik"></iframe>
+-        </div>
+-      </div>
+-    </section>
+-  );
+-}
+ 
+ function LegalDocs() {
+   return (
+-    <section id="polityka" className="py-16 bg-white">
++    <section id="polityka" className="py-20 bg-white">
+       <div className="max-w-6xl mx-auto px-4">
+-        <h2 className="text-2xl md:text-4xl font-bold tracking-tight">Polityka prywatności i informacje prawne</h2>
++        <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight">Polityka prywatności i informacje prawne</h2>
+         <Tabs defaultValue="rodo" className="mt-6">
+           <TabsList>
+             <TabsTrigger value="rodo">Polityka prywatności (RODO)</TabsTrigger>
+             <TabsTrigger value="regulamin">Regulamin usług</TabsTrigger>
+             <TabsTrigger value="cookies">Cookies</TabsTrigger>
+           </TabsList>
+           <TabsContent value="rodo">
+             <Card>
+               <CardHeader>
+                 <CardTitle>Administrator danych</CardTitle>
+                 <CardDescription>
+                   {BRAND.companyFullName} / {BRAND.name}<br />
+                   {BRAND.address}<br />
+                   NIP: {BRAND.nip} | REGON: {BRAND.regon}
+                 </CardDescription>
+               </CardHeader>
+-              <CardContent className="text-sm text-slate-700 space-y-2">
++              <CardContent className="text-sm text-slate-700 space-y-4">
+                 <p className="font-medium">Dane podmiotu prowadzącego stronę:</p>
+                 <p>{BRAND.companyFullName}<br />Forma prawna: {BRAND.legalForm}<br />Przedsiębiorca: {BRAND.entrepreneur}<br />Małżeńska wspólność majątkowa: {BRAND.maritalProperty}<br />Data rozpoczęcia działalności w CEIDG: {BRAND.ceidgStart}</p>
+-              <CardContent className="text-sm text-slate-700 space-y-4">
+-                <p>Kontakt do ADO: {BRAND.email}. Dane przetwarzamy zgodnie z RODO oraz przepisami korporacyjnymi dotyczącymi tajemnicy zawodowej radców prawnych.</p>
+                 <Separator />
+-                <div>
+-                  <h4 className="font-semibold">1) Kontakt przez formularz/ e‑mail</h4>
+-                  <ul className="list-disc list-inside space-y-1">
+-                    <li>Zakres: imię, e‑mail, treść wiadomości, metadane techniczne.</li>
+-                    <li>Cel i podstawa: udzielenie odpowiedzi (art. 6 ust. 1 lit. f RODO – prawnie uzasadniony interes ADO).</li>
+-                    <li>Okres: do 12 miesięcy od ostatniego kontaktu lub dłużej, gdy przechodzi w relację klientską.</li>
+-                    <li>Odbiorcy: dostawcy hostingu/poczty na podstawie umów powierzenia.</li>
+-                  </ul>
+-                </div>
+-                <div>
+-                  <h4 className="font-semibold">2) Umawianie konsultacji</h4>
+-                  <ul className="list-disc list-inside space-y-1">
+-                    <li>Zakres: dane identyfikacyjne i kontaktowe, termin rozmowy.</li>
+-                    <li>Podstawa: działania zmierzające do zawarcia umowy (art. 6 ust. 1 lit. b RODO).</li>
+-                    <li>Okres: do czasu realizacji konsultacji i rozliczeń.</li>
+-                  </ul>
+-                </div>
+-                <div>
+-                  <h4 className="font-semibold">3) Prowadzenie sprawy / pełnomocnictwo</h4>
+-                  <ul className="list-disc list-inside space-y-1">
+-                    <li>Zakres: dane klientki/klienta i osób trzecich, w tym dane szczególnych kategorii (np. zdrowie) – w zakresie koniecznym do prowadzenia sprawy.</li>
+-                    <li>Podstawa: wykonanie umowy (art. 6 ust. 1 lit. b), obowiązki prawne (art. 6 ust. 1 lit. c), ustalenie/dochodzenie roszczeń (art. 6 ust. 1 lit. f) oraz art. 9 ust. 2 lit. f RODO.</li>
+-                    <li>Okres: zgodnie z terminami przedawnienia roszczeń i przepisami korporacyjnymi (min. 5 lat od końca roku obrotowego).</li>
+-                  </ul>
+-                </div>
+-                <div>
+-                  <h4 className="font-semibold">4) Rozliczenia i księgowość</h4>
+-                  <ul className="list-disc list-inside space-y-1">
+-                    <li>Podstawa: obowiązek prawny (art. 6 ust. 1 lit. c RODO, ustawy podatkowe/rachunkowe).</li>
+-                    <li>Okres: 5 lat licząc od końca roku podatkowego.</li>
+-                  </ul>
+-                </div>
+-                <div>
+-                  <h4 className="font-semibold">5) Marketing własny bez cookies</h4>
+-                  <ul className="list-disc list-inside space-y-1">
+-                    <li>Cel: informowanie o usługach na stronie i w e‑mailu do aktualnych klientek/klientów.</li>
+-                    <li>Podstawa: prawnie uzasadniony interes (art. 6 ust. 1 lit. f RODO); zgoda wymagana przy komunikacji elektronicznej do osób niebędących klientami.</li>
+-                  </ul>
+-                </div>
+-                <div>
+-                  <h4 className="font-semibold">6) Statystyka z Google Analytics 4 (Consent Mode)</h4>
+-                  <ul className="list-disc list-inside space-y-1">
+-                    <li>Zakres: dane o ruchu na stronie, zanonimizowane IP, identyfikatory urządzeń/ciasteczek – tylko po wyrażeniu zgody na „analityczne”.</li>
+-                    <li>Podstawa: zgoda (art. 6 ust. 1 lit. a RODO). Brak zgody = brak cookies analitycznych; działanie w trybie ograniczonym.</li>
+-                    <li>Odbiorca: Google Ireland Ltd. Standardowe zabezpieczenia przy transferach.</li>
+-                  </ul>
+-                </div>
+-                <div>
+-                  <h4 className="font-semibold">7) Pliki cookies i logi serwera</h4>
+-                  <ul className="list-disc list-inside space-y-1">
+-                    <li>Niezbędne cookies – do działania strony (podstawa: art. 6 ust. 1 lit. f RODO). Analityczne – wyłącznie za zgodą.</li>
+-                    <li>Logi serwera przechowywane dla bezpieczeństwa i diagnostyki (do 12 miesięcy).</li>
+-                  </ul>
+-                </div>
+-                <div>
+-                  <h4 className="font-semibold">Prawa osób i kontakt</h4>
+-                  <p>Masz prawo żądać dostępu, sprostowania, usunięcia, ograniczenia, przenoszenia oraz sprzeciwu. Skargę możesz wnieść do Prezesa UODO. Kontakt: {BRAND.email}.</p>
+-                </div>
+-                <div className="pt-2">
+-                  <Button asChild size="sm"><a href="/docs/informacja-rodo.pdf" download><FileText className="w-4 h-4 mr-2"/>Pobierz „Informacja RODO” (PDF)</a></Button>
+-                </div>
++                <p>Kontakt do ADO: {BRAND.email}. Dane przetwarzamy zgodnie z RODO oraz przepisami dotyczącymi tajemnicy zawodowej.</p>
+               </CardContent>
+             </Card>
+           </TabsContent>
+           <TabsContent value="regulamin">
+             <Card>
+               <CardHeader>
+                 <CardTitle>Regulamin świadczenia usług</CardTitle>
+                 <CardDescription>Postanowienia ogólne i tryb zawierania umów</CardDescription>
+               </CardHeader>
+               <CardContent className="text-sm text-slate-700 space-y-2">
+                 <p>Umowa zawierana jest po akceptacji oferty i udzieleniu pełnomocnictwa. Zakres, terminy i wynagrodzenie określa oferta lub załącznik do umowy.</p>
+-                <p>Płatności: przelew/przedpłata zgodnie z harmonogramem. Reklamacje: w formie pisemnej lub elektronicznej na adres {BRAND.email}.</p>
++                <p>Płatności: przelew/przedpłata zgodnie z harmonogramem. Reklamacje: pisemnie lub elektronicznie na adres {BRAND.email}.</p>
+               </CardContent>
+             </Card>
+           </TabsContent>
+           <TabsContent value="cookies">
+             <Card>
+               <CardHeader>
+                 <CardTitle>Pliki cookies i zgody</CardTitle>
+                 <CardDescription>Zarządzanie zgodami i okresy przechowywania</CardDescription>
+               </CardHeader>
+               <CardContent className="text-sm text-slate-700 space-y-2">
+-                <p>Na starcie ustawiamy tryb „odmowa” (Consent Mode). Po wyrażeniu zgody na cookies analityczne aktywujemy Google Analytics 4. Zgody możesz zmienić w dowolnym momencie w stopce („Zarządzaj zgodami”).</p>
++                <p>Domyślnie stosujemy tryb odmowy dla analityki. Po wyrażeniu zgody aktywujemy GA4. Zgody możesz zmienić w stopce.</p>
+               </CardContent>
+             </Card>
+           </TabsContent>
+         </Tabs>
+       </div>
+     </section>
+   );
+ }
+ 
++function VisualGallery() {
++  const gallery = [
++    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
++    "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=80",
++    "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
++  ];
++
++  return (
++    <section className="py-20 bg-white">
++      <div className="max-w-6xl mx-auto px-4">
++        <div className="flex items-end justify-between gap-4 flex-wrap">
++          <div>
++            <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight">Galeria i klimat marki</h2>
++            <p className="mt-2 text-slate-700">Dodatkowe elementy wizualne dla lepszego odbioru prototypu i bardziej nowoczesnego wyglądu strony.</p>
++          </div>
++          <Badge variant="secondary" className="text-sm">Warstwa wizualna v2</Badge>
++        </div>
++        <div className="mt-8 grid md:grid-cols-3 gap-6">
++          {gallery.map((src, i) => (
++            <div key={i} className="rounded-2xl overflow-hidden border shadow-sm">
++              <img src={src} alt={`Galeria ${i + 1}`} className="w-full h-56 object-cover" loading="lazy" />
++            </div>
++          ))}
++        </div>
++      </div>
++    </section>
++  );
++}
++
+ function Footer() {
+-  const [openConsent, setOpenConsent] = useState(false);
+   return (
+     <footer className="bg-slate-50 border-t">
+       <div className="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-4 gap-8 text-sm">
+         <div>
+           <div className="flex items-center gap-2 font-semibold"><Scale className="w-4 h-4" /> {BRAND.name}</div>
+           <p className="mt-2 text-slate-700">Kancelaria prawna wspierająca kobiety. {BRAND.nip} | {BRAND.regon}</p>
+         </div>
+         <div>
+           <div className="font-semibold">Kontakt</div>
+           <ul className="mt-2 space-y-1">
+-            <li className="flex items-center gap-2"><Phone className="w-4 h-4" /> {BRAND.phone}</li>
+-            <li className="flex items-center gap-2"><Mail className="w-4 h-4" /> {BRAND.email}</li>
++            <li className="flex items-center gap-2"><Phone className="w-4 h-4" /> <a className="hover:underline" href={`tel:${BRAND.phone.replace(/\s+/g, "")}`}>{BRAND.phone}</a></li>
++            <li className="flex items-center gap-2"><Mail className="w-4 h-4" /> <a className="hover:underline" href={`mailto:${BRAND.email}`}>{BRAND.email}</a></li>
+             <li className="flex items-center gap-2"><MapPin className="w-4 h-4" /> {BRAND.address}</li>
+           </ul>
+         </div>
+         <div>
+           <div className="font-semibold">Nawigacja</div>
+           <ul className="mt-2 space-y-1">
+             <li><a href="#uslugi" className="hover:underline">Usługi</a></li>
++            <li><a href="#proces" className="hover:underline">Proces</a></li>
+             <li><a href="#jak-pracujemy" className="hover:underline">Jak pracujemy</a></li>
+             <li><a href="#o-nas" className="hover:underline">O nas</a></li>
++            <li><a href="#pakiety" className="hover:underline">Pakiety</a></li>
+             <li><a href="#blog" className="hover:underline">Artykuły</a></li>
+             <li><a href="#faq" className="hover:underline">FAQ</a></li>
+             <li><a href="#kontakt" className="hover:underline">Kontakt</a></li>
+           </ul>
+         </div>
+         <div>
+           <div className="font-semibold">Informacje</div>
+           <ul className="mt-2 space-y-1">
+             <li><a href="#polityka" className="hover:underline">Polityka prywatności</a></li>
+             <li><a href="#polityka" className="hover:underline">Regulamin</a></li>
+             <li><a href="#polityka" className="hover:underline">Cookies</a></li>
+             <li><button onClick={() => window.dispatchEvent(new CustomEvent('lumenlex-open-consent'))} className="underline">Zarządzaj zgodami</button></li>
+           </ul>
+         </div>
+       </div>
+       <div className="text-center text-xs text-slate-500 pb-6">© {new Date().getFullYear()} {BRAND.name}. Wszelkie prawa zastrzeżone.</div>
+     </footer>
+   );
+ }
+ 
+ function CookieBanner() {
+   const [visible, setVisible] = useState(false);
+   const [prefs, setPrefs] = useState({ necessary: true, analytics: false });
+   React.useEffect(() => {
+     const stored = localStorage.getItem('lumenlex_consent_v1');
+@@ -811,25 +924,56 @@ function loadGAOnce(id) {
+   (window as any).dataLayer = (window as any).dataLayer || [];
+   function gtag(){ (window as any).dataLayer.push(arguments as any); }
+   gtag('consent', 'default', {
+     ad_user_data: 'denied',
+     ad_personalization: 'denied',
+     ad_storage: 'denied',
+     analytics_storage: 'denied'
+   });
+   const s = document.createElement('script');
+   s.async = true;
+   s.src = `https://www.googletagmanager.com/gtag/js?id=${id}`;
+   document.head.appendChild(s);
+   const inline = document.createElement('script');
+   inline.innerHTML = `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${id}', { anonymize_ip: true });`;
+   document.head.appendChild(inline);
+ }
+ 
+ function ConsentManager() {
+   React.useEffect(() => {
+     // jeśli zgody już zapisane i GA włączone — załaduj GA
+     try {
+       const stored = JSON.parse(localStorage.getItem('lumenlex_consent_v1') || 'null');
+       const analytics = stored?.analytics === true;
+       if (BRAND.gaId && analytics) loadGAOnce(BRAND.gaId);
+     } catch {}
++  }, []);
++
++  return null;
++}
++
++export default function App() {
++  return (
++    <div className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
++      <Header />
++      <Hero />
++      <ProcessSection />
++      <Services />
++      <Packages />
++      <CaseStudies />
++      <HowWeWork />
++      <About />
++      <Blog />
++      <Pricing />
++      <Testimonials />
++      <FAQ />
++      <Contact />
++      <LegalDocs />
++      <VisualGallery />
++      <Separator />
++      <Footer />
++      <CookieBanner />
++      <ConsentManager />
++      <StickyMobileCTA />
++    </div>
++  );
++}
