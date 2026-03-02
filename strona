@@ -443,7 +443,7 @@ index 3771d69835cb28e9b626a6a992a7a29c4cca10fb..90eecbea6772255d8f66f9d17cefea7c
 -          <h2 className="text-2xl md:text-4xl font-bold tracking-tight">O kancelarii</h2>
 +          <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight">O kancelarii</h2>
            <p className="mt-4 text-slate-700">
-             {BRAND.name} to kancelaria prowadzona przez radcę prawnego Zuzannę Jakubik, wpisaną na listę Okręgowej Izby Radców Prawnych w Gdańsku.
+        
              Poza pracą w spółce świadczącej usługi ochrony prawnej, realizuje się prowadząc własną działalność w zakresie doradztwa prawnego
              oraz przybliżając nieprawnikom prawną materię.
            </p>
