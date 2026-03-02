@@ -10,28 +10,6 @@ index 3771d69835cb28e9b626a6a992a7a29c4cca10fb..90eecbea6772255d8f66f9d17cefea7c
  import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
  import { Phone, Mail, MapPin, ShieldCheck, HeartHandshake, Scale, ScrollText, Star, MessageCircle, Calendar, Search, ChevronRight, FileText, Building2, Globe, Cookie, CheckCircle2, BookOpen, Users, Handshake } from "lucide-react";
  
- // ===================== KONFIGURACJA =====================
- const BRAND = {
-   name: "LumenLex",
-   email: "zuzannajakubik@lumenlex.pl",
-   phone: "+48 123 456 789",
-   address: "ul. Kwidzyńska 1/1A, 82-200 Malbork",
-   city: "Malbork",
-   nip: "5792291121",
-   regon: "526076705",
-   // Forma prawna i dane CEIDG
-   legalForm: "indywidualna działalność gospodarcza",
-   entrepreneur: "Zuzanna Jakubik",
-   maritalProperty: "Brak",
-   ceidgStart: "2023-09-01",
-   companyFullName: "ZWA PEŁNA — Kancelaria Radcy Prawnego Zuzanna Jakubik",
-   // Analytics (GA4) — podmień na swój identyfikator np. G-ABCD123456
-   gaId: "G-XXXXXXXXXX",
-   // Google Maps — domyślnie używamy embed z adresem; możesz też podać współrzędne
--  mapsQuery: "ul. Kwidzyńs
-+  mapsQuery: "ul. Kwidzyńska 1/1A, 82-200 Malbork",
-+};
- 
  // ===================== DANE STRONY =====================
  const services = [
    {
